@@ -88,9 +88,7 @@ mvp_mean = (perc_mvp_sk1*sk1_mean_yr + perc_mvp_sk2*sk2_mean_yr)
 mvp_var = (perc_mvp_sk1**2)*sk1_var_yr + (perc_mvp_sk2**2)*sk2_var_yr + 2*perc_mvp_sk1*perc_mvp_sk2* corr*sk1_std_yr*sk2_std_yr
 mvp_std = np.sqrt(mvp_var)
 
-# results
-
-
+# print results
 print("__RESULTS__")
 table1 = {' ': ['mean', 'variance', 'std'], 'stock1': [sk1_mean_yr, sk1_var_yr, sk1_std_yr], 'stock2': [sk2_mean_yr, sk1_var_yr, sk2_std_yr]}
 df1 = pd.DataFrame(table1)
@@ -104,10 +102,9 @@ print('% stock 2: ', round(perc_mvp_sk2*100, 2),'%')
 print('mean mvp: ',mvp_mean)
 print('var mvp: ',mvp_var)
 print('std mvp: ',mvp_std)
+print()
 
 # graphic representation
-
-print()
 graphic = input('Graphic representation? (Y/N) ')
 
 if graphic == 'Y':
