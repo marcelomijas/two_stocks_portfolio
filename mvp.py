@@ -77,7 +77,12 @@ df['portfolio_mean'] = (df['perc_sk1']*sk1_mean_yr + (1-df['perc_sk1'])*sk2_mean
 ## markov minimum variance portfolio
 
 perc_mvp_sk1 = (sk2_var_yr - corr*sk1_std_yr*sk2_std_yr) / (sk1_var_yr + sk2_var_yr - 2*corr*sk1_std_yr*sk2_std_yr)
-perc_mvp_sk2 = (1-perc_mvp_sk1)
+if perc_mvp_sk1 > 1:
+    perc_mvp_sk1 = 1
+elif perc_mvp_sk1 < 0:
+    perc_mvp_sk1 = 0
+
+perc_mvp_sk2 = (1 - perc_mvp_sk1)
 
 mvp_mean = (perc_mvp_sk1*sk1_mean_yr + perc_mvp_sk2*sk2_mean_yr)
 mvp_var = (perc_mvp_sk1**2)*sk1_var_yr + (perc_mvp_sk2**2)*sk2_var_yr + 2*perc_mvp_sk1*perc_mvp_sk2* corr*sk1_std_yr*sk2_std_yr
@@ -94,8 +99,8 @@ print('covariance: ', cov)
 print('correlation: ', corr)
 print()
 print('__MINIMUM VARIANCE PORTFOLIO__')
-print('% stock 1: ', perc_mvp_sk1)
-print('% stock 2: ', perc_mvp_sk2)
+print('% stock 1: ', round(perc_mvp_sk1*100, 2),'%')
+print('% stock 2: ', round(perc_mvp_sk2*100, 2),'%')
 print('mean mvp: ',mvp_mean)
 print('var mvp: ',mvp_var)
 print('std mvp: ',mvp_std)
@@ -107,10 +112,12 @@ graphic = input('Graphic representation? (Y/N) ')
 
 if graphic == 'Y':
     ax = plt.subplot()
+    ax.grid()
     X = df['portfolio_std']
     Y = df['portfolio_mean']
     plt.scatter(X, Y, s = 3)
     ax.plot(mvp_std, mvp_mean, "ro")
     plt.xlabel('standard deviation')
     plt.ylabel('mean')
+    ax.annotate('Minimum Variance Portfolio', xy = (mvp_std, mvp_mean), xycoords = 'data', xytext = (mvp_std + mvp_std*0.05, mvp_mean))
     plt.show()
