@@ -8,6 +8,12 @@ Minimum variance portfolio and market optimal portfolio finder using the package
 
 Right now is only available for Python IDEs, planning to release on Windows and Linux.
 
+Formula for the minimum variance portfolio (using Markowitz model):
+
+<img src="https://render.githubusercontent.com/render/math?math=W^*_{sk1}=\frac{\sigma^2_{sk2}-cov(sk1,sk2)}{\sigma^2_{sk1} %2B \sigma^2_{sk2} - 2 \times cov(sk1,sk2)}">
+
+<img src="https://render.githubusercontent.com/render/math?math=W^*_{sk2}=1-W^*_{sk1}">
+
 ### Roadmap
 
 :earth_americas::wavy_dash::rocket::wavy_dash::wavy_dash::wavy_dash::wavy_dash::wavy_dash::wavy_dash::wavy_dash::new_moon: v1.0.0
