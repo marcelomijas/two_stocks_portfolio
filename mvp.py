@@ -57,7 +57,7 @@ corr = np.corrcoef(sk1_pc, sk2_pc)[0][1]
 
 
 # portfolio
-step = 0.01 # steps of the percentage combination
+step = 0.001 # steps of the percentage combination
 perc_sk1 = np.arange(0, 1+step, step).tolist()
 
 table = {'perc_sk1': perc_sk1}
@@ -91,7 +91,7 @@ table1 = {' ': ['mean', 'variance', 'std'], 'stock1': [sk1_mean_yr, sk1_var_yr, 
 df1 = pd.DataFrame(table1)
 print(df1)
 print('covariance: ', cov)
-print('correlation', corr)
+print('correlation: ', corr)
 print()
 print('__MINIMUM VARIANCE PORTFOLIO__')
 print('% stock 1: ', perc_mvp_sk1)
