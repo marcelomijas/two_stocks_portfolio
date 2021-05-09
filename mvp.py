@@ -121,3 +121,4 @@ if graphic == 'Y':
     plt.ylabel('mean')
     ax.annotate('Minimum Variance Portfolio', xy = (mvp_std, mvp_mean), xycoords = 'data', xytext = (mvp_std + mvp_std*0.05, mvp_mean))
     plt.show()
+    plt.close()
