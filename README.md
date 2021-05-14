@@ -28,9 +28,13 @@ Formula for the minimum variance portfolio (using Markowitz model):
 
 :construction: Add more statistics and data to display: beta, sharpe ratio, etc.
 
+:construction: Add export option
+
 :construction: Web interface, replacing matplotlib with plotly
 
 :construction: Custom time interval and frequency selection (by default: int: 1y, freq: 1d)
+
+:construction: Possibility to go with more than two stocks
 
 ## Version release history
 
