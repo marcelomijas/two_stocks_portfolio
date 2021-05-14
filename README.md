@@ -10,9 +10,9 @@ Right now is only available for Python IDEs, planning to release on Windows and 
 
 Formula for the minimum variance portfolio (using Markowitz model):
 
-<img src="https://render.githubusercontent.com/render/math?math=W^*_{1}=\frac{\sigma^2_{2}-cov(sk1,sk2)}{\sigma^2_{1} %2B \sigma^2_{2} - 2 \times cov(1,2)}">
+<img src="https://render.githubusercontent.com/render/math?math=W^*_{stock 1}=\frac{\sigma^2_{stock 2}-cov(sk1,sk2)}{\sigma^2_{stock 1} %2B \sigma^2_{stock 2} - 2 \times cov(stock 1, stock 2)}">
 
-<img src="https://render.githubusercontent.com/render/math?math=W^*_{2}=1-W^*_{1}">
+<img src="https://render.githubusercontent.com/render/math?math=W^*_{stock 2}=1-W^*_{stock 1}">
 
 (<img src="https://render.githubusercontent.com/render/math?math=W^*_{i}="> stock i minimum variance portfolio ponderation (i = 1, 2).
 
