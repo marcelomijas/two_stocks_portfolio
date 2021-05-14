@@ -12,4 +12,4 @@ def stock_download(ticker):
     return stock
 
 rf = stock_download('^TNX')
-print(rf)
+print(rf) # variance = 0

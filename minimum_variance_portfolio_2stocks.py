@@ -42,9 +42,9 @@ def get_2stocks_stats(stock1_pc, stock2_pc):
 
 #### DATA INPUT AND TRANSFORMATION SECTION ####
 
-print('+----------------------------------------------------+')
-print('| MINIMUM VARIANCE PORTFOLIO CALCULATOR (TWO STOCKS) |')
-print('+----------------------------------------------------+\n')
+print('\n+------------------------------------------------------+')
+print('|  MINIMUM VARIANCE PORTFOLIO CALCULATOR (TWO STOCKS)  |')
+print('+------------------------------------------------------+\n')
 
 # stock 1
 ticker1 = input('Ticker stock 1: ')
@@ -117,7 +117,7 @@ print(df2.to_string(index=False, header=False))
 #### GRAPHIC REPRESENTATION SECTION ####
 graphic = input('\nGraphic representation? (Y/N) ')
 
-if graphic == 'Y' or 'YES' or 'y' or 'yes':
+if graphic == 'Y' or graphic == 'YES' or graphic == 'y' or graphic == 'yes':
     ax = plt.subplot()
     ax.grid()
     X = df['portfolio_std']
