@@ -40,10 +40,10 @@ Formula for the minimum variance portfolio (using Markowitz model):
 
 ### Version 0.2.0 - Released 2021-05-15
 
-Now the Minimum Variance Portfolio with 2 stocks (minimum_variance_portfolio_2stocks.py) is fully functional.
+Now the Minimum Variance Portfolio with 2 stocks is fully functional.
 
 Additions:
-* Creation of a Market Optimum Portfolio with 2 stocks (market_optimum_portfolio_2stocks.py) file to start a proof of concept in the following days.
+* Creation of a Market Optimum Portfolio with 2 stocks file to start a proof of concept in the following days.
 
 New features:
 * New results appearance.
@@ -57,4 +57,4 @@ Bug fixes:
 ### Version 0.1.0 - Released 2021-05-09
 
 New features:
-* Working minimum variance portfolio with two stocks (mvp.py).
+* Working minimum variance portfolio with two stocks.
