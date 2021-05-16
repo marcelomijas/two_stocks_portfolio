@@ -1,30 +1,22 @@
 # Minimum variance and market optimal portfolio with Python
 
-Minimum variance portfolio and market optimal portfolio finder using the packages:
-- yfinance
-- numpy
-- pandas
-- matplotlib
+Minimum Variance Portfolio and Optimum Market Portfolio asset allocator with Python using:
+* yfinance
+* numpy
+* pandas
+* matplotlib
 
 Right now is only available for Python IDEs, planning to release on Windows and Linux.
 
-Formula for the minimum variance portfolio (using Markowitz model):
-
-<img src="https://render.githubusercontent.com/render/math?math=W^*_{stock 1}=\frac{\sigma^2_{stock 2}-cov(stock 1,stock 2)}{\sigma^2_{stock 1} %2B \sigma^2_{stock 2} - 2 \times cov(stock 1, stock 2)}">
-
-<img src="https://render.githubusercontent.com/render/math?math=W^*_{stock 2}=1-W^*_{stock 1}">
-
-(Where <img src="https://render.githubusercontent.com/render/math?math=W^*_{i}"> equals: stock i minimum variance portfolio ponderation (i = 1, 2).
-
 ### Roadmap
 
-:earth_americas::wavy_dash::wavy_dash::wavy_dash::rocket::wavy_dash::wavy_dash::wavy_dash::wavy_dash::wavy_dash::new_moon: v1.0.0
+:earth_americas::wavy_dash::wavy_dash::wavy_dash::wavy_dash::rocket::wavy_dash::wavy_dash::wavy_dash::wavy_dash::new_moon: v1.0.0
 
 :heavy_check_mark: Proof of Concept (basic functionality)
 
-:heavy_check_mark: Minimum variance portfolio with two stocks
+:heavy_check_mark: Minimum Variance Portfolio with two stocks
 
-:construction: Optimal market portfolio with two stocks
+:heavy_check_mark: Optimum Market Portfolio with two stocks
 
 :construction: Add more statistics and data to display: beta, sharpe ratio, etc.
 
@@ -38,12 +30,26 @@ Formula for the minimum variance portfolio (using Markowitz model):
 
 ## Version release history
 
-### Version 0.2.0 - Released 2021-05-15
+### Version 0.3.0 - Released 2021-05-16
+
+Now the Optimum Market Portfolio with 2 stocks is fully functional.
+
+Changes:
+* Plot color change.
+* The plot now uses a tight layout.
+
+New features:
+* Added Sharpe ratio to the Optimum Market Portfolio stats.
+
+Bug fixes:
+* The graph grid is now below the plot.
+
+### Version 0.2.0 - Released 2021-05-14
 
 Now the Minimum Variance Portfolio with 2 stocks is fully functional.
 
 Additions:
-* Creation of a Market Optimum Portfolio with 2 stocks file to start a proof of concept in the following days.
+* Creation of an Optimum Market Portfolio with 2 stocks file to start a PoC in the following days.
 
 New features:
 * New results appearance.
