@@ -28,9 +28,9 @@ def get_stock_stats(stock_pc):
     return mean, variance, std
 
 def get_yearly_stats(mean, variance):
-    # 254 = days of market open
-    yr_mean = mean*254 # yearly mean profits
-    yr_variance = variance*254 # yearly variance
+    # 253 = days of one trading year
+    yr_mean = mean*253 # yearly mean profits
+    yr_variance = variance*253 # yearly variance
     yr_std = np.sqrt(yr_variance) # yearly standard deviation
     return yr_mean, yr_variance, yr_std
 
@@ -70,13 +70,10 @@ step = 0.001 # steps of the percentage combination (rows of the portfolio table)
 perc_of_stock1 = np.arange(0, 1+step, step).tolist()
 table = {'perc_of_stock1': perc_of_stock1}
 df = pd.DataFrame(table)
-
 # profits of each portfolio combination
 df['portfolio_mean'] = (df['perc_of_stock1'] * stock1_yr_mean + (1 - df['perc_of_stock1']) * stock2_yr_mean)
-
 # variance of each portfolio combination
 df['portfolio_variance'] = (((df['perc_of_stock1']) ** 2) * stock1_yr_variance + ((1 - df['perc_of_stock1']) ** 2) * stock2_yr_variance + 2 * ((df['perc_of_stock1']) * (1 - df['perc_of_stock1']) * correlation * stock1_yr_std * stock2_yr_std))
-
 # standard deviation of each portfolio combination
 df['portfolio_std'] = (np.sqrt(df['portfolio_variance']))
 
@@ -120,13 +117,15 @@ graphic = input('\nGraphic representation? (Y/N) ')
 if graphic == 'Y' or graphic == 'YES' or graphic == 'y' or graphic == 'yes':
     ax = plt.subplot()
     ax.grid()
+    ax.set_axisbelow(True)
     X = df['portfolio_std']
     Y = df['portfolio_mean']
-    plt.scatter(X, Y, s = 3)
+    plt.scatter(X, Y, color='slategray', s=3)
     ax.plot(mvp_std, mvp_mean, "ro")
     plt.xlabel('standard deviation')
     plt.ylabel('mean')
-    ax.annotate('Minimum Variance Portfolio', xy = (mvp_std, mvp_mean), xycoords = 'data', xytext = (mvp_std + mvp_std*0.05, mvp_mean))
+    ax.annotate('Minimum Variance Portfolio', xy = (mvp_std, mvp_mean), xycoords = 'data', xytext = (mvp_std + mvp_std*0.025, mvp_mean))
+    plt.tight_layout()
     plt.show()
     plt.close()
     print('\nProcess finished')
