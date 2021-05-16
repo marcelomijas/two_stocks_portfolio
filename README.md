@@ -1,4 +1,4 @@
-# Minimum variance and market optimal portfolio with Python
+# Minimum Variance Portfolio and Optimum Market Portfolio with Python
 
 Minimum Variance Portfolio and Optimum Market Portfolio asset allocator with Python using:
 * yfinance
@@ -9,8 +9,6 @@ Minimum Variance Portfolio and Optimum Market Portfolio asset allocator with Pyt
 Right now is only available for Python IDEs, planning to release on Windows and Linux.
 
 ### Roadmap
-
-:earth_americas::wavy_dash::wavy_dash::wavy_dash::wavy_dash::rocket::wavy_dash::wavy_dash::wavy_dash::wavy_dash::new_moon: v1.0.0
 
 :heavy_check_mark: Proof of Concept (basic functionality)
 
