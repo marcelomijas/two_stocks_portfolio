@@ -28,6 +28,11 @@ Right now is only available for Python IDEs, planning to release on Windows and 
 
 ## Version release history
 
+### Version 0.3.1 - Released 2021-05-17
+
+Changes:
+* Plot color change.
+
 ### Version 0.3.0 - Released 2021-05-16
 
 Now the Optimum Market Portfolio with 2 stocks is fully functional.
