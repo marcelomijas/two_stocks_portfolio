@@ -131,7 +131,7 @@ print(' covariance (stocks): ', covariance.round(6))
 print('correlation (stocks): ', correlation.round(6))
 
 print('\n__OPTIMUM MARKET PORTFOLIO__')
-table2 = {'% ticker': ['% @ {}:'.format(ticker1), '% @ {}:'.format(ticker2), 'omp mean:', 'omp variance:', 'omp std:'], 'data': [omp_perc_of_stock1*100, omp_perc_of_stock2*100, omp_mean, omp_variance, omp_std]}
+table2 = {'% ticker': ['% @ {}:'.format(ticker1), '% @ {}:'.format(ticker2), 'portfolio mean:', 'portfolio variance:', 'portfolio std:'], 'data': [omp_perc_of_stock1*100, omp_perc_of_stock2*100, omp_mean, omp_variance, omp_std]}
 df2 = pd.DataFrame(table2)
 df2['data'] = df2['data'].round(3)
 print(df2.to_string(index=False, header=False))
@@ -156,6 +156,8 @@ if graphic == 'Y' or graphic == 'YES' or graphic == 'y' or graphic == 'yes':
     plt.ylabel('mean')
     ax.annotate('Optimum Market Portfolio', xy = (omp_std, omp_mean), xycoords = 'data', xytext = (omp_std + omp_std*0.025, omp_mean))
     plt.tight_layout()
+    ax.set_ylim(ymin=0)
+    ax.set_xlim(xmin=0)
     plt.show()
     plt.close()
     print('\nProcess finished')

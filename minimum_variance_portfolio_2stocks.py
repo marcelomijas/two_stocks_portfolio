@@ -105,7 +105,7 @@ print(' covariance: ', covariance.round(6))
 print('correlation: ', correlation.round(6))
 
 print('\n__MINIMUM VARIANCE PORTFOLIO__')
-table2 = {'% ticker': ['% @ {}:'.format(ticker1), '% @ {}:'.format(ticker2), 'mvp mean:', 'mvp variance:', 'mvp std:'], 'data': [mvp_perc_of_stock1*100, mvp_perc_of_stock2*100, mvp_mean, mvp_variance, mvp_std]}
+table2 = {'% ticker': ['% @ {}:'.format(ticker1), '% @ {}:'.format(ticker2), 'portfolio mean:', 'portfolio variance:', 'portfolio std:'], 'data': [mvp_perc_of_stock1*100, mvp_perc_of_stock2*100, mvp_mean, mvp_variance, mvp_std]}
 df2 = pd.DataFrame(table2)
 df2['data'] = df2['data'].round(3)
 print(df2.to_string(index=False, header=False))
@@ -126,6 +126,8 @@ if graphic == 'Y' or graphic == 'YES' or graphic == 'y' or graphic == 'yes':
     plt.ylabel('mean')
     ax.annotate('Minimum Variance Portfolio', xy = (mvp_std, mvp_mean), xycoords = 'data', xytext = (mvp_std + mvp_std*0.025, mvp_mean))
     plt.tight_layout()
+    ax.set_ylim(ymin=0)
+    ax.set_xlim(xmin=0)
     plt.show()
     plt.close()
     print('\nProcess finished')
