@@ -28,6 +28,19 @@ Right now is only available for Python IDEs, planning to release on Windows and 
 
 ## Version release history
 
+### Version 0.3.2 - Released 2021-05-18
+
+New features:
+* The graphic representation now shows where is located the 100% of each stock.
+
+Improvements:
+* Number of functions reduced.
+* More understandable code and portfolio formulas.
+* Graphic representation branding.
+
+Bug fixes:
+* Now the covariance stat is adapted to the trading year (*253).
+
 ### Version 0.3.1 - Released 2021-05-17
 
 Changes:
