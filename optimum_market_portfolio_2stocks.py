@@ -3,7 +3,6 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
-# Best example: AMD & CSCO
 
 #### FUNCTIONS SECTION ####
 
@@ -113,7 +112,7 @@ print(' covariance (stocks): ', covariance.round(6))
 print('correlation (stocks): ', correlation.round(6))
 
 print('\n__OPTIMUM MARKET PORTFOLIO__')
-table2 = {'% ticker': ['% @ {}:'.format(ticker1), '% @ {}:'.format(ticker2), 'portfolio mean:', 'portfolio variance:', 'portfolio std:'], 'data': [omp_perc_of_stock1*100, omp_perc_of_stock2*100, omp_mean, omp_variance, omp_std]}
+table2 = {'% ticker': ['% at {}:'.format(ticker1), '% at {}:'.format(ticker2), 'portfolio mean:', 'portfolio variance:', 'portfolio std:'], 'data': [omp_perc_of_stock1*100, omp_perc_of_stock2*100, omp_mean, omp_variance, omp_std]}
 df2 = pd.DataFrame(table2)
 df2['data'] = df2['data'].round(3)
 print(df2.to_string(index=False, header=False))
