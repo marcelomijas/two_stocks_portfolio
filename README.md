@@ -28,6 +28,13 @@ Right now is only available for Python IDEs, planning to release on Windows and 
 
 ## Version release history
 
+### Version 0.4.0 - Released 2021-05-20
+
+Unified version of minimum variance portfolio and optimum market portfolio.
+
+Improvements:
+* Chart xmin and ymax update.
+
 ### Version 0.3.2 - Released 2021-05-18
 
 New features:
