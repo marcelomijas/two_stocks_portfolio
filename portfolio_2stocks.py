@@ -3,9 +3,9 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
-###########################
-#### FUNCTIONS SECTION ####
-###########################
+#####################################################################################
+## FUNCTIONS SECTION ################################################################
+#####################################################################################
 
 def stock_download(ticker):
     stock = yf.download(tickers=ticker, period='1y', interval='1d')
@@ -28,9 +28,9 @@ def get_2stocks_stats(stock1_pc, stock2_pc):
     correlation = np.corrcoef(stock1_pc, stock2_pc)[0][1]
     return covariance, correlation
 
-###############################################
-#### DATA INPUT AND TRANSFORMATION SECTION ####
-###############################################
+#####################################################################################
+## DATA INPUT AND TRANSFORMATION SECTION ############################################
+#####################################################################################
 
 print('\n+---------------------------------+')
 print('|  TWO ASSETS PORTFOLIO ANALYSIS  |')
@@ -112,9 +112,9 @@ df_omp_rf['portfolio variance'] = (((df_omp_rf['% at omp']) ** 2) * omp_variance
 # standard deviation of each portfolio combination
 df_omp_rf['portfolio std'] = (np.sqrt(df_omp_rf['portfolio variance']))
 
-#####################################
-#### RESULT PRESENTATION SECTION ####
-#####################################
+#####################################################################################
+## RESULT PRESENTATION SECTION ######################################################
+#####################################################################################
 
 input('\nCalculation complete. Press Enter to show results ')
 
@@ -141,7 +141,10 @@ df3['data'] = df3['data'].round(3)
 print(df2.to_string(index=False, header=False))
 print('Sharpe ratio: ', round(omp_sharpe_ratio, 3))
 
-#### GRAPHIC REPRESENTATION SECTION ####
+#####################################################################################
+## GRAPHIC REPRESENTATION SECTION ###################################################
+#####################################################################################
+
 graphic = input('\nGraphic representation? (Y/N) ')
 
 if graphic == 'Y' or graphic == 'YES' or graphic == 'y' or graphic == 'yes':
