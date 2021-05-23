@@ -112,8 +112,9 @@ df_omp_rf['portfolio variance'] = (((df_omp_rf['% at omp']) ** 2) * omp_variance
 # standard deviation of each portfolio combination
 df_omp_rf['portfolio std'] = (np.sqrt(df_omp_rf['portfolio variance']))
 
-
+#####################################
 #### RESULT PRESENTATION SECTION ####
+#####################################
 
 input('\nCalculation complete. Press Enter to show results ')
 
