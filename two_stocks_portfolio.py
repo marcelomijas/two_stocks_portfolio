@@ -3,37 +3,35 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
-#####################################################################################
-## FUNCTIONS SECTION ################################################################
-#####################################################################################
+
+## FUNCTIONS SECTION
 
 def stock_download(ticker):
-    stock = yf.download(tickers=ticker, period='1y', interval='1d')
-    return stock
+    stock = yf.download(tickers=ticker, period='1y', interval='1d') # 1 year period on 1 day intervals
+    return stock[0:252] # [0:252] makes all stocks df the same length
 
 def pct_change(stock):
-    column_pct_change = 'Close'
+    column_pct_change = 'Close' # uses the close price to calculate the percent change
     stock_pc = stock[column_pct_change].pct_change()[1:]
     return stock_pc
 
 def get_stock_stats(stock_pc):
-    # 253 = days of one trading year
-    mean = stock_pc.mean()*253 # yearly return
-    variance = stock_pc.var()*253 # yearly variance
-    std = np.sqrt(variance)*253 # yearly std
+    # 252 = days of one trading year
+    mean = stock_pc.mean()*252 # yearly return
+    variance = stock_pc.var()*252 # yearly variance
+    std = np.sqrt(variance)*252 # yearly standard deviation
     return mean, variance, std
 
 def get_2stocks_stats(stock1_pc, stock2_pc):
-    covariance = np.cov(stock1_pc, stock2_pc)[0][1]*253
+    covariance = np.cov(stock1_pc, stock2_pc)[0][1]*252
     correlation = np.corrcoef(stock1_pc, stock2_pc)[0][1]
     return covariance, correlation
 
-#####################################################################################
-## DATA INPUT AND TRANSFORMATION SECTION ############################################
-#####################################################################################
+
+## DATA INPUT AND TRANSFORMATION SECTION
 
 print('\n+---------------------------------+')
-print('|  TWO ASSETS PORTFOLIO ANALYSIS  |')
+print('|  TWO STOCKS PORTFOLIO ANALYSIS  |')
 print('+---------------------------------+\n')
 
 # stock 1
@@ -112,38 +110,48 @@ df_omp_rf['portfolio variance'] = (((df_omp_rf['% at omp']) ** 2) * omp_variance
 # standard deviation of each portfolio combination
 df_omp_rf['portfolio std'] = (np.sqrt(df_omp_rf['portfolio variance']))
 
-#####################################################################################
-## RESULT PRESENTATION SECTION ######################################################
-#####################################################################################
+
+## TABLE OF RESULTS
 
 input('\nCalculation complete. Press Enter to show results ')
 
-print("\n__PER STOCK RESULTS__")
-table1 = {' ': ['mean:', 'variance:', 'std:'], ticker1: [stock1_mean, stock1_variance, stock1_std], ticker2: [stock2_mean, stock2_variance, stock2_std]}
+print("\nPER STOCK STATS\n-----------------")
+table1 = {' ': ['Mean:', 'Variance:', 'Std. Dev.:'],
+          ticker1: [stock1_mean, stock1_variance, stock1_std],
+          ticker2: [stock2_mean, stock2_variance, stock2_std]}
 df1 = pd.DataFrame(table1)
 df1[ticker1] = df1[ticker1].round(3)
 df1[ticker2] = df1[ticker2].round(3)
 print(df1.to_string(index=False))
-print(' covariance: ', covariance.round(6))
-print('correlation: ', correlation.round(6))
+print(' Covariance: ', covariance.round(6))
+print('Correlation: ', correlation.round(6))
 
-print('\n__MINIMUM VARIANCE PORTFOLIO__')
-table2 = {'% at ticker': ['% at {}:'.format(ticker1), '% at {}:'.format(ticker2), 'portfolio mean:', 'portfolio variance:', 'portfolio std:'], 'data': [mvp_perc_of_stock1*100, mvp_perc_of_stock2*100, mvp_mean, mvp_variance, mvp_std]}
+print('\nMINIMUM VARIANCE PORTFOLIO STATS\n--------------------------------')
+table2 = {'% at ticker': ['% at {}:'.format(ticker1),
+                          '% at {}:'.format(ticker2),
+                          'Mean:',
+                          'Variance:',
+                          'Std. Dev.:'],
+          'data': [mvp_perc_of_stock1*100, mvp_perc_of_stock2*100, mvp_mean, mvp_variance, mvp_std]}
 df2 = pd.DataFrame(table2)
 df2['data'] = df2['data'].round(3)
 print(df2.to_string(index=False, header=False))
 print('Sharpe ratio: ', round(mvp_sharpe_ratio, 3))
 
-print('\n__OPTIMUM MARKET PORTFOLIO__')
-table3 = {'% at ticker': ['% at {}:'.format(ticker1), '% at {}:'.format(ticker2), 'portfolio mean:', 'portfolio variance:', 'portfolio std:'], 'data': [omp_perc_of_stock1*100, omp_perc_of_stock2*100, omp_mean, omp_variance, omp_std]}
+print('\nOPTIMUM MARKET PORTFOLIO STATS\n------------------------------')
+table3 = {'% at ticker': ['% at {}:'.format(ticker1),
+                          '% at {}:'.format(ticker2),
+                          'Mean:',
+                          'Variance:',
+                          'Std. Dev.:'],
+          'data': [omp_perc_of_stock1*100, omp_perc_of_stock2*100, omp_mean, omp_variance, omp_std]}
 df3 = pd.DataFrame(table3)
 df3['data'] = df3['data'].round(3)
 print(df2.to_string(index=False, header=False))
 print('Sharpe ratio: ', round(omp_sharpe_ratio, 3))
 
-#####################################################################################
-## GRAPHIC REPRESENTATION SECTION ###################################################
-#####################################################################################
+
+## GRAPHIC REPRESENTATION
 
 graphic = input('\nGraphic representation? (Y/N) ')
 
@@ -156,7 +164,7 @@ if graphic == 'Y' or graphic == 'YES' or graphic == 'y' or graphic == 'yes':
     Xa = df_omp_rf['portfolio std']
     Ya = df_omp_rf['portfolio mean']
     plt.scatter(Xa, Ya, color='black', s=0.25)
-    plt.scatter(X, Y, color='slategray', s=3)
+    plt.scatter(X, Y, color='slategray', s=2)
     plt.scatter(df_pt['portfolio std'].head(1), df_pt['portfolio mean'].head(1), color='blue')
     plt.scatter(df_pt['portfolio std'].tail(1), df_pt['portfolio mean'].tail(1), color='blue')
     ax.plot(mvp_std, mvp_mean, "ro")
@@ -171,7 +179,6 @@ if graphic == 'Y' or graphic == 'YES' or graphic == 'y' or graphic == 'yes':
     ax.text(0, rf_mean, rf_ticker)
     plt.tight_layout()
     ax.set_xlim(mvp_std*(1-0.05))
-    # ax.set_ylim((df_pt['portfolio mean'].tail(1))*(1-0.05))
     plt.show()
     plt.close()
     print('\nProcess finished')
