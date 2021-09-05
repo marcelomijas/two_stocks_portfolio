@@ -115,7 +115,7 @@ df_omp_rf['portfolio std'] = (np.sqrt(df_omp_rf['portfolio variance']))
 
 input('\nCalculation complete. Press Enter to show results ')
 
-print("\nPER STOCK STATS\n-----------------")
+print("\nPER STOCK STATS\n---------------")
 table1 = {' ': ['Mean:', 'Variance:', 'Std. Dev.:'],
           ticker1: [stock1_mean, stock1_variance, stock1_std],
           ticker2: [stock2_mean, stock2_variance, stock2_std]}
@@ -147,7 +147,7 @@ table3 = {'% at ticker': ['% at {}:'.format(ticker1),
           'data': [omp_perc_of_stock1*100, omp_perc_of_stock2*100, omp_mean, omp_variance, omp_std]}
 df3 = pd.DataFrame(table3)
 df3['data'] = df3['data'].round(3)
-print(df2.to_string(index=False, header=False))
+print(df3.to_string(index=False, header=False))
 print('Sharpe ratio: ', round(omp_sharpe_ratio, 3))
 
 
@@ -167,18 +167,17 @@ if graphic == 'Y' or graphic == 'YES' or graphic == 'y' or graphic == 'yes':
     plt.scatter(X, Y, color='slategray', s=2)
     plt.scatter(df_pt['portfolio std'].head(1), df_pt['portfolio mean'].head(1), color='blue')
     plt.scatter(df_pt['portfolio std'].tail(1), df_pt['portfolio mean'].tail(1), color='blue')
-    ax.plot(mvp_std, mvp_mean, "ro")
-    ax.plot(omp_std, omp_mean, "go")
+    ax.plot(mvp_std, mvp_mean, "ro", label = 'Minimum Variance Portfolio')
+    ax.plot(omp_std, omp_mean, "go", label = 'Optimum Market Portfolio')
     ax.plot(0, rf_mean, "yo")
     plt.xlabel('Risk (standard deviation)')
     plt.ylabel('Return (mean)')
-    plt.text(mvp_std, mvp_mean, 'Minimum Variance Portfolio')
-    plt.text(omp_std, omp_mean, 'Optimum Market Portfolio')
     plt.text(df_pt['portfolio std'].head(1), df_pt['portfolio mean'].head(1), ticker2)
     plt.text(df_pt['portfolio std'].tail(1), df_pt['portfolio mean'].tail(1), ticker1)
     ax.text(0, rf_mean, rf_ticker)
     plt.tight_layout()
     ax.set_xlim(mvp_std*(1-0.05))
+    plt.legend(loc="upper left")
     plt.show()
     plt.close()
     print('\nProcess finished')
