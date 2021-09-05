@@ -153,7 +153,7 @@ print('Sharpe ratio: ', round(omp_sharpe_ratio, 3))
 
 ## GRAPHIC REPRESENTATION
 
-graphic = input('\nGraphic representation? (Y/N) ')
+graphic = input('\nGraphic representation? Y/[N] ')
 
 if graphic == 'Y' or graphic == 'YES' or graphic == 'y' or graphic == 'yes':
     ax = plt.subplot()
@@ -165,8 +165,8 @@ if graphic == 'Y' or graphic == 'YES' or graphic == 'y' or graphic == 'yes':
     Ya = df_omp_rf['portfolio mean']
     plt.scatter(Xa, Ya, color='black', s=0.25)
     plt.scatter(X, Y, color='slategray', s=2)
-    plt.scatter(df_pt['portfolio std'].head(1), df_pt['portfolio mean'].head(1), color='blue')
-    plt.scatter(df_pt['portfolio std'].tail(1), df_pt['portfolio mean'].tail(1), color='blue')
+    plt.scatter(df_pt['portfolio std'].head(1), df_pt['portfolio mean'].head(1), color='blue', s=15)
+    plt.scatter(df_pt['portfolio std'].tail(1), df_pt['portfolio mean'].tail(1), color='blue', s=15)
     ax.plot(mvp_std, mvp_mean, "ro", label = 'Minimum Variance Portfolio')
     ax.plot(omp_std, omp_mean, "go", label = 'Optimum Market Portfolio')
     ax.plot(0, rf_mean, "yo")
