@@ -11,15 +11,15 @@ def download(t_symb):
     return stock[0:252] # [0:252] makes all stocks df the same length
 
 def pct_change(stock):
-    column_pc = 'Close' # uses the close price to calculate the percent change
+    column_pc = 'Close' # uses the 'Close' price to calculate the percent change
     stock_pc = stock[column_pc].pct_change()[1:]
     return stock_pc
 
 def stock_stats(stock_pc):
     # 252 = days of one trading year
-    mu = stock_pc.mean()*252 # yearly return
+    mu = stock_pc.mean()*252 # yearly mean (return)
     sigma_sq = stock_pc.var()*252 # yearly variance
-    sigma = np.sqrt(sigma_sq)*252 # yearly standard deviation
+    sigma = np.sqrt(sigma_sq)*252 # yearly standard deviation (risk)
     return mu, sigma_sq, sigma
 
 def two_stock_stats(stock1_pc, stock2_pc):
@@ -49,7 +49,7 @@ stock2_mu, stock2_sigma_sq, stock2_sigma = stock_stats(stock2_pc)
 # covariance and correlation stats
 cov, corr = two_stock_stats(stock1_pc, stock2_pc)
 
-# risk free stock: 10 year US bond yield
+# risk free asset: 10 year US bond yield
 rf_t_symb = '^TNX'
 print('Risk free asset: {} (10 year US bond yield, annualized)'.format(rf_t_symb))
 rf = download(rf_t_symb)
@@ -98,7 +98,7 @@ omp_sigma_sq = (omp_pct_stock1 ** 2) * stock1_sigma_sq + (omp_pct_stock2 ** 2) *
 omp_sigma = np.sqrt(omp_sigma_sq)
 omp_sharpe_ratio = (omp_mu - rf_mu) / omp_sigma
 
-# omp and rf combination table
+# omp and rf combination table (df_omp_rf)
 step = 0.001 # steps of the percentage combination (rows of the portfolio table)
 pct_omp = np.arange(0, 2 + step, step).tolist()
 omp_rf = {'Pct. optimum market portfolio': pct_omp}
@@ -167,8 +167,8 @@ if graphic == 'Y' or graphic == 'YES' or graphic == 'y' or graphic == 'yes':
     plt.scatter(X_line, Y_line, color='black', s=0.25)
     plt.scatter(df_pt['Port. standard deviation'].head(1), df_pt['Port. mean'].head(1), color='blue', s=15)
     plt.scatter(df_pt['Port. standard deviation'].tail(1), df_pt['Port. mean'].tail(1), color='blue', s=15)
-    ax.plot(mvp_sigma, mvp_mu, "ro", label ='Minimum Variance Portfolio')
-    ax.plot(omp_sigma, omp_mu, "go", label ='Optimum Market Portfolio')
+    ax.plot(mvp_sigma, mvp_mu, "ro", label='Minimum Variance Portfolio')
+    ax.plot(omp_sigma, omp_mu, "go", label='Optimum Market Portfolio')
     plt.xlabel('Risk (standard deviation)')
     plt.ylabel('Return (mean)')
     plt.text(df_pt['Port. standard deviation'].head(1), df_pt['Port. mean'].head(1), t_symb2)
