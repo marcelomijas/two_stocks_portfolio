@@ -153,9 +153,9 @@ print('Sharpe ratio: ', round(omp_sharpe_ratio, 3))
 
 ## GRAPHIC REPRESENTATION
 
-graphic = input('\nGraphic representation? Y/[N] ')
+g_rep = input('\nGraphic representation? Y/[N] ')
 
-if graphic == 'Y' or graphic == 'YES' or graphic == 'y' or graphic == 'yes':
+if g_rep == 'Y' or g_rep == 'y':
     ax = plt.subplot()
     ax.grid()
     ax.set_axisbelow(True)
