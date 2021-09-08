@@ -159,22 +159,20 @@ if graphic == 'Y' or graphic == 'YES' or graphic == 'y' or graphic == 'yes':
     ax = plt.subplot()
     ax.grid()
     ax.set_axisbelow(True)
-    X = df_pt['Port. standard deviation']
-    Y = df_pt['Port. mean']
-    Xa = df_omp_rf['Port. standard deviation']
-    Ya = df_omp_rf['Port. mean']
-    plt.scatter(Xa, Ya, color='black', s=0.25)
-    plt.scatter(X, Y, color='slategray', s=2)
+    X_curve = df_pt['Port. standard deviation']
+    Y_curve = df_pt['Port. mean']
+    X_line = df_omp_rf['Port. standard deviation']
+    Y_line = df_omp_rf['Port. mean']
+    plt.scatter(X_curve, Y_curve, color='slategray', s=2)
+    plt.scatter(X_line, Y_line, color='black', s=0.25)
     plt.scatter(df_pt['Port. standard deviation'].head(1), df_pt['Port. mean'].head(1), color='blue', s=15)
     plt.scatter(df_pt['Port. standard deviation'].tail(1), df_pt['Port. mean'].tail(1), color='blue', s=15)
     ax.plot(mvp_sigma, mvp_mu, "ro", label ='Minimum Variance Portfolio')
     ax.plot(omp_sigma, omp_mu, "go", label ='Optimum Market Portfolio')
-    ax.plot(0, rf_mu, "yo")
     plt.xlabel('Risk (standard deviation)')
     plt.ylabel('Return (mean)')
     plt.text(df_pt['Port. standard deviation'].head(1), df_pt['Port. mean'].head(1), t_symb2)
     plt.text(df_pt['Port. standard deviation'].tail(1), df_pt['Port. mean'].tail(1), t_symb1)
-    ax.text(0, rf_mu, rf_t_symb)
     plt.tight_layout()
     ax.set_xlim(mvp_sigma * (1 - 0.05))
     plt.legend(loc="upper left")

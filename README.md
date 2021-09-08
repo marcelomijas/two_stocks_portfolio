@@ -25,3 +25,10 @@ Press 'Y' to proceed, or 'N' to finish the program.
 8. If you proceed with the graphic representation, a matplotlib window will automatically appear with the plot. Here you
 can zoom in, out, save as an image... with the matplotlib interface. When you are finnished, close the matplotlib window
 and the program will end.
+
+## Example
+
+Output example using BlackBerry Limited (BB) and Advanced Micro Devices (AMD) stocks:
+![Stats example](https://github.com/marcelomijas/two_stock_portfolio/tree/main/example_images/stats.png?raw=true)
+
+![Plot example](https://github.com/marcelomijas/two_stock_portfolio/tree/main/example_images/plot.png?raw=true)
