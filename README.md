@@ -1,35 +1,87 @@
-# Two stocks minimum variance portfolio and optimum market portfolio with Python
+# Two stocks portfolio analysis with Python
 
-Two stocks minimum variance portfolio and optimum market portfolio two-asset allocator with Python using Harry Max Markowitz modern portfolio theory. 
+Two stocks minimum variance portfolio and optimum market portfolio analysis with Python using Harry Max Markowitz modern 
+portfolio theory.
 
-Libraries used:
+Libraries used for the project:
 * [yfinance](https://pypi.org/project/yfinance/)
 * [numpy](https://numpy.org/)
 * [pandas](https://pandas.pydata.org/)
 * [matplotlib](https://matplotlib.org/)
 
-## Instructions of use
+## Usage
 
 1. Make sure to have installed the last version of all the libraries above.
-2. Download and execute the "two\_stocks\_portfolio.py" file with Python 3+.
-3. First, the program will ask you to introduce the ticker of the 1st of the two stocks that you want to create the
-portfolio with. Introduce it and press Enter.
-4. Then, the program will ask you to introduce the ticker of the 2nd of the two stocks that you want to create the
-portfolio with. Introduce it and press Enter.
-5. The program will automatically download data from the risk-free asset (10 year US bond yield)
-and start the calculations.
+2. Download and execute the "two\_stocks\_portfolio.py" file with Python (versions equal or above 3.8 are recommended).
+3. First, the program will ask to introduce the ticker symbol of the 1st of the two stocks that the portfolio will be 
+composed of. Introduce it and press Enter.
+4. Secondly, the program will ask to introduce the ticker symbol of the 1st of the two stocks that the portfolio will be 
+composed of. Introduce it and press Enter.
+5. Then, the program will automatically download data from the risk-free asset and start the calculations.
 6. When the calculations are complete, the program will prompt to press Enter to show results. Press it. Per stock and
 portfolio stats will be presented.
-7. Finally, the program will ask you if you want a graphic representation of the portfolios in the return-risk space.
+7. Finally, the program will ask for a graphic representation of the portfolios in the return-risk space.
 Press 'Y' to proceed, or 'N' to finish the program.
-8. If you proceed with the graphic representation, a matplotlib window will automatically appear with the plot. Here you
-can zoom in, out, save as an image... with the matplotlib interface. When you are finnished, close the matplotlib window
-and the program will end.
+8. If graphic representation is selected, a matplotlib window will automatically appear with the plot. Here you
+can zoom in, out, save the plot as an image... with the matplotlib interface. When you are finished, close the
+matplotlib window and the program will end.
+
+By default, the program uses the time period of 1 year with 1 days intervals, the 'Close' price for its calculations, 
+and the risk-free asset is 10 year US bond yield (^TNX).
 
 ## Example
 
-Output example using BlackBerry Limited (BB) and Advanced Micro Devices (AMD) stocks:
+Use example using Advanced Micro Devices (AMD) and BlackBerry Limited (BB) stocks:
 
-![Stats example](/example_images/stats.png)
+```
++---------------------------------+
+|  TWO STOCKS PORTFOLIO ANALYSIS  |
++---------------------------------+
 
-![Plot example](https://github.com/marcelomijas/two_stock_portfolio/tree/main/example_images/plot.png)
+Ticker symbol stock 1: AMD
+[*********************100%***********************]  1 of 1 completed
+Ticker symbol stock 2: BB
+[*********************100%***********************]  1 of 1 completed
+Risk free asset: ^TNX (10 year US bond yield, annualized)
+[*********************100%***********************]  1 of 1 completed
+
+Calculation complete. Press Enter to show results 
+
+PER STOCK STATS
+---------------
+               AMD      BB
+     Mean:   0.407   1.339
+ Variance:   0.158   1.089
+Std. Dev.: 100.208 262.965
+ Covariance:  0.042684
+Correlation:  0.102864
+
+MINIMUM VARIANCE PORTFOLIO STATS
+--------------------------------
+ Pct. AMD: 90.062
+  Pct. BB:  9.938
+     Mean:  0.500
+ Variance:  0.147
+Std. Dev.:  0.383
+Sharpe ratio:  1.304
+
+OPTIMUM MARKET PORTFOLIO STATS
+------------------------------
+ Pct. AMD: 66.525
+  Pct. BB: 33.475
+     Mean:  0.719
+ Variance:  0.211
+Std. Dev.:  0.459
+Sharpe ratio:  1.565
+
+Graphic representation? Y/[N]  
+```
+
+If the response to ```Graphic representation?``` is ```Y```, then:
+![Plot example](/example_images/plot.png)
+
+Lastly (have chosen ```N``` or closed the matplotlib window):
+
+```
+Process finished
+```
