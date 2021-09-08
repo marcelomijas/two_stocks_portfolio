@@ -17,13 +17,13 @@ def pct_change(stock):
 
 def stock_stats(stock_pc):
     # 252 = days of one trading year
-    mu = stock_pc.mean()*252 # yearly mean (return)
-    sigma_sq = stock_pc.var()*252 # yearly variance
-    sigma = np.sqrt(sigma_sq)*252 # yearly standard deviation (risk)
+    mu = stock_pc.mean() * 252 # yearly mean (return)
+    sigma_sq = stock_pc.var() * 252 # yearly variance
+    sigma = np.sqrt(sigma_sq) # yearly standard deviation (risk)
     return mu, sigma_sq, sigma
 
 def two_stock_stats(stock1_pc, stock2_pc):
-    cov = np.cov(stock1_pc, stock2_pc)[0][1]*252 # covariance
+    cov = np.cov(stock1_pc, stock2_pc)[0][1] * 252 # covariance
     corr = np.corrcoef(stock1_pc, stock2_pc)[0][1] # correlation
     return cov, corr
 

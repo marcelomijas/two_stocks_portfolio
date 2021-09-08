@@ -49,10 +49,10 @@ Calculation complete. Press Enter to show results
 
 PER STOCK STATS
 ---------------
-               AMD      BB
-     Mean:   0.407   1.339
- Variance:   0.158   1.089
-Std. Dev.: 100.208 262.965
+             AMD    BB
+     Mean: 0.407 1.339
+ Variance: 0.158 1.089
+Std. Dev.: 0.398 1.044
  Covariance:  0.042684
 Correlation:  0.102864
 
@@ -67,8 +67,8 @@ Sharpe ratio:  1.304
 
 OPTIMUM MARKET PORTFOLIO STATS
 ------------------------------
- Pct. AMD: 66.525
-  Pct. BB: 33.475
+ Pct. AMD: 66.526
+  Pct. BB: 33.474
      Mean:  0.719
  Variance:  0.211
 Std. Dev.:  0.459
