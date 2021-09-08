@@ -29,6 +29,6 @@ and the program will end.
 ## Example
 
 Output example using BlackBerry Limited (BB) and Advanced Micro Devices (AMD) stocks:
-![Stats example](https://github.com/marcelomijas/two_stock_portfolio/tree/main/example_images/stats.png?raw=true)
+![Stats example](https://github.com/marcelomijas/two_stock_portfolio/tree/main/example_images/stats.png)
 
-![Plot example](https://github.com/marcelomijas/two_stock_portfolio/tree/main/example_images/plot.png?raw=true)
+![Plot example](https://github.com/marcelomijas/two_stock_portfolio/tree/main/example_images/plot.png)
