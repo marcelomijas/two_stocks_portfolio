@@ -7,6 +7,8 @@ import matplotlib.pyplot as plt
 ## FUNCTIONS SECTION
 
 def download(t_symb):
+    add_info = yf.Ticker(t_symb)
+    print(add_info.info['longName'])
     stock = yf.download(tickers=t_symb, period='1y', interval='1d') # 1 year period on 1 day intervals
     return stock[0:252] # [0:252] makes all stocks df the same length
 
