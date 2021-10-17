@@ -39,10 +39,13 @@ Use example using Advanced Micro Devices (AMD) and BlackBerry Limited (BB) stock
 +---------------------------------+
 
 Ticker symbol stock 1: AMD
+Advanced Micro Devices, Inc.
 [*********************100%***********************]  1 of 1 completed
 Ticker symbol stock 2: BB
+BlackBerry Limited
 [*********************100%***********************]  1 of 1 completed
 Risk free asset: ^TNX (10 year US bond yield, annualized)
+Treasury Yield 10 Years
 [*********************100%***********************]  1 of 1 completed
 
 Calculation complete. Press Enter to show results 
