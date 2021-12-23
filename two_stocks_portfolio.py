@@ -4,33 +4,36 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 
-## FUNCTIONS SECTION
+# FUNCTIONS SECTION
 
 def download(t_symb):
     add_info = yf.Ticker(t_symb)
     print(add_info.info['longName'])
-    stock = yf.download(tickers=t_symb, period='1y', interval='1d') # 1 year period on 1 day intervals
-    return stock[0:252] # [0:252] makes all stocks df the same length
+    stock = yf.download(tickers=t_symb, period='1y', interval='1d')  # 1 year period on 1 day intervals
+    return stock[0:252]  # [0:252] makes all stocks df the same length
+
 
 def pct_change(stock):
-    column_pc = 'Close' # uses the 'Close' price to calculate the percent change
+    column_pc = 'Close'  # uses the 'Close' price to calculate the percent change
     stock_pc = stock[column_pc].pct_change()[1:]
     return stock_pc
 
+
 def stock_stats(stock_pc):
     # 252 = days of one trading year
-    mu = stock_pc.mean() * 252 # yearly mean (return)
-    sigma_sq = stock_pc.var() * 252 # yearly variance
-    sigma = np.sqrt(sigma_sq) # yearly standard deviation (risk)
+    mu = stock_pc.mean() * 252  # yearly mean (return)
+    sigma_sq = stock_pc.var() * 252  # yearly variance
+    sigma = np.sqrt(sigma_sq)  # yearly standard deviation (risk)
     return mu, sigma_sq, sigma
 
+
 def two_stock_stats(stock1_pc, stock2_pc):
-    cov = np.cov(stock1_pc, stock2_pc)[0][1] * 252 # covariance
-    corr = np.corrcoef(stock1_pc, stock2_pc)[0][1] # correlation
+    cov = np.cov(stock1_pc, stock2_pc)[0][1] * 252  # covariance
+    corr = np.corrcoef(stock1_pc, stock2_pc)[0][1]  # correlation
     return cov, corr
 
 
-## DATA INPUT AND TRANSFORMATION SECTION
+# DATA INPUT AND TRANSFORMATION SECTION
 
 print('\n+---------------------------------+')
 print('|  TWO STOCKS PORTFOLIO ANALYSIS  |')
@@ -56,17 +59,19 @@ rf_t_symb = '^TNX'
 print('Risk free asset: {} (10 year US bond yield, annualized)'.format(rf_t_symb))
 rf = download(rf_t_symb)
 rf_pc = pct_change(rf)
-rf_mu = rf_pc.mean() / 10 # yearly
+rf_mu = rf_pc.mean() / 10  # yearly
 
 # portfolio table (pt)
-step = 0.001 # steps of the percentage combination (rows of the portfolio table)
+step = 0.001  # steps of the percentage combination (rows of the portfolio table)
 pct_stock1 = np.arange(0, 1 + step, step).tolist()
 pt = {'Pct. stock1': pct_stock1}
 df_pt = pd.DataFrame(pt)
 # profits of each portfolio combination
 df_pt['Port. mean'] = (df_pt['Pct. stock1'] * stock1_mu + (1 - df_pt['Pct. stock1']) * stock2_mu)
 # variance of each portfolio combination
-df_pt['Port. variance'] = (((df_pt['Pct. stock1']) ** 2) * stock1_sigma_sq + ((1 - df_pt['Pct. stock1']) ** 2) * stock2_sigma_sq + 2 * ((df_pt['Pct. stock1']) * (1 - df_pt['Pct. stock1']) * cov))
+df_pt['Port. variance'] = (((df_pt['Pct. stock1']) ** 2) * stock1_sigma_sq + (
+            (1 - df_pt['Pct. stock1']) ** 2) * stock2_sigma_sq + 2 * (
+                                       (df_pt['Pct. stock1']) * (1 - df_pt['Pct. stock1']) * cov))
 # standard deviation of each portfolio combination
 df_pt['Port. standard deviation'] = (np.sqrt(df_pt['Port. variance']))
 
@@ -80,13 +85,15 @@ mvp_pct_stock2 = (1 - mvp_pct_stock1)
 
 # mvp stats
 mvp_mu = (mvp_pct_stock1 * stock1_mu + mvp_pct_stock2 * stock2_mu)
-mvp_sigma_sq = (mvp_pct_stock1 ** 2) * stock1_sigma_sq + (mvp_pct_stock2 ** 2) * stock2_sigma_sq + 2 * mvp_pct_stock1 * mvp_pct_stock2 * cov
+mvp_sigma_sq = (mvp_pct_stock1 ** 2) * stock1_sigma_sq + (
+            mvp_pct_stock2 ** 2) * stock2_sigma_sq + 2 * mvp_pct_stock1 * mvp_pct_stock2 * cov
 mvp_sigma = np.sqrt(mvp_sigma_sq)
 mvp_sharpe_ratio = (mvp_mu - rf_mu) / mvp_sigma
 
 # Markowitz optimum market portfolio (omp) calculation
 omp_formula_part1 = (stock1_mu - rf_mu) * stock2_sigma_sq - (stock2_mu - rf_mu) * cov
-omp_formula_part2 = (stock2_mu - rf_mu) * stock1_sigma_sq + (stock1_mu - rf_mu) * stock2_sigma_sq - (stock1_mu + stock2_mu - 2 * rf_mu) * cov
+omp_formula_part2 = (stock2_mu - rf_mu) * stock1_sigma_sq + (stock1_mu - rf_mu) * stock2_sigma_sq - (
+            stock1_mu + stock2_mu - 2 * rf_mu) * cov
 omp_pct_stock1 = omp_formula_part1 / omp_formula_part2
 if omp_pct_stock1 > 1:
     omp_pct_stock1 = 1
@@ -96,12 +103,13 @@ omp_pct_stock2 = (1 - omp_pct_stock1)
 
 # omp stats
 omp_mu = (omp_pct_stock1 * stock1_mu + omp_pct_stock2 * stock2_mu)
-omp_sigma_sq = (omp_pct_stock1 ** 2) * stock1_sigma_sq + (omp_pct_stock2 ** 2) * stock2_sigma_sq + 2 * omp_pct_stock1 * omp_pct_stock2 * cov
+omp_sigma_sq = (omp_pct_stock1 ** 2) * stock1_sigma_sq + (
+            omp_pct_stock2 ** 2) * stock2_sigma_sq + 2 * omp_pct_stock1 * omp_pct_stock2 * cov
 omp_sigma = np.sqrt(omp_sigma_sq)
 omp_sharpe_ratio = (omp_mu - rf_mu) / omp_sigma
 
 # omp and rf combination table (df_omp_rf)
-step = 0.001 # steps of the percentage combination (rows of the portfolio table)
+step = 0.001  # steps of the percentage combination (rows of the portfolio table)
 pct_omp = np.arange(0, 2 + step, step).tolist()
 omp_rf = {'Pct. optimum market portfolio': pct_omp}
 df_omp_rf = pd.DataFrame(omp_rf)
@@ -112,8 +120,7 @@ df_omp_rf['Port. variance'] = (((df_omp_rf['Pct. optimum market portfolio']) ** 
 # standard deviation of each portfolio combination
 df_omp_rf['Port. standard deviation'] = (np.sqrt(df_omp_rf['Port. variance']))
 
-
-## TABLE OF RESULTS
+# TABLE OF RESULTS
 
 input('\nCalculation complete. Press Enter to show results ')
 
@@ -130,10 +137,10 @@ print('Correlation: ', corr.round(6))
 
 print('\nMINIMUM VARIANCE PORTFOLIO STATS\n--------------------------------')
 table2 = {'Pct. ticker symbol': ['Pct. {}:'.format(t_symb1),
-                          'Pct. {}:'.format(t_symb2),
-                          'Mean:',
-                          'Variance:',
-                          'Std. Dev.:'],
+                                 'Pct. {}:'.format(t_symb2),
+                                 'Mean:',
+                                 'Variance:',
+                                 'Std. Dev.:'],
           'data': [mvp_pct_stock1 * 100, mvp_pct_stock2 * 100, mvp_mu, mvp_sigma_sq, mvp_sigma]}
 df2 = pd.DataFrame(table2)
 df2['data'] = df2['data'].round(3)
@@ -142,18 +149,17 @@ print('Sharpe ratio: ', round(mvp_sharpe_ratio, 3))
 
 print('\nOPTIMUM MARKET PORTFOLIO STATS\n------------------------------')
 table3 = {'Pct. ticker symbol': ['Pct. {}:'.format(t_symb1),
-                          'Pct. {}:'.format(t_symb2),
-                          'Mean:',
-                          'Variance:',
-                          'Std. Dev.:'],
+                                 'Pct. {}:'.format(t_symb2),
+                                 'Mean:',
+                                 'Variance:',
+                                 'Std. Dev.:'],
           'data': [omp_pct_stock1 * 100, omp_pct_stock2 * 100, omp_mu, omp_sigma_sq, omp_sigma]}
 df3 = pd.DataFrame(table3)
 df3['data'] = df3['data'].round(3)
 print(df3.to_string(index=False, header=False))
 print('Sharpe ratio: ', round(omp_sharpe_ratio, 3))
 
-
-## GRAPHIC REPRESENTATION
+# GRAPHIC REPRESENTATION
 
 g_rep = input('\nGraphic representation? Y/[N] ')
 
