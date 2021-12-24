@@ -61,7 +61,7 @@ rf = download(rf_t_symb)
 rf_pc = pct_change(rf)
 rf_mu = rf_pc.mean() / 10  # yearly
 
-# portfolio table (pt)
+# portfolio table (df_pt)
 step = 0.001  # steps of the percentage combination (rows of the portfolio table)
 pct_stock1 = np.arange(0, 1 + step, step).tolist()
 pt = {'Pct. stock1': pct_stock1}
@@ -75,20 +75,20 @@ df_pt['Port. variance'] = (((df_pt['Pct. stock1']) ** 2) * stock1_sigma_sq + (
 # standard deviation of each portfolio combination
 df_pt['Port. standard deviation'] = (np.sqrt(df_pt['Port. variance']))
 
-# Markowitz minimum variance portfolio (mvp) calculation
-mvp_pct_stock1 = (stock2_sigma_sq - cov) / (stock1_sigma_sq + stock2_sigma_sq - 2 * cov)
-if mvp_pct_stock1 > 1:
-    mvp_pct_stock1 = 1
-elif mvp_pct_stock1 < 0:
-    mvp_pct_stock1 = 0
-mvp_pct_stock2 = (1 - mvp_pct_stock1)
+# Markowitz global minimum variance portfolio (gmvp) calculation
+gmvp_pct_stock1 = (stock2_sigma_sq - cov) / (stock1_sigma_sq + stock2_sigma_sq - 2 * cov)
+if gmvp_pct_stock1 > 1:
+    gmvp_pct_stock1 = 1
+elif gmvp_pct_stock1 < 0:
+    gmvp_pct_stock1 = 0
+gmvp_pct_stock2 = (1 - gmvp_pct_stock1)
 
-# mvp stats
-mvp_mu = (mvp_pct_stock1 * stock1_mu + mvp_pct_stock2 * stock2_mu)
-mvp_sigma_sq = (mvp_pct_stock1 ** 2) * stock1_sigma_sq + (
-            mvp_pct_stock2 ** 2) * stock2_sigma_sq + 2 * mvp_pct_stock1 * mvp_pct_stock2 * cov
-mvp_sigma = np.sqrt(mvp_sigma_sq)
-mvp_sharpe_ratio = (mvp_mu - rf_mu) / mvp_sigma
+# gmvp stats
+gmvp_mu = (gmvp_pct_stock1 * stock1_mu + gmvp_pct_stock2 * stock2_mu)
+gmvp_sigma_sq = (gmvp_pct_stock1 ** 2) * stock1_sigma_sq + (
+        gmvp_pct_stock2 ** 2) * stock2_sigma_sq + 2 * gmvp_pct_stock1 * gmvp_pct_stock2 * cov
+gmvp_sigma = np.sqrt(gmvp_sigma_sq)
+gmvp_sharpe_ratio = (gmvp_mu - rf_mu) / gmvp_sigma
 
 # Markowitz optimum market portfolio (omp) calculation
 omp_formula_part1 = (stock1_mu - rf_mu) * stock2_sigma_sq - (stock2_mu - rf_mu) * cov
@@ -135,17 +135,17 @@ print(df1.to_string(index=False))
 print(' Covariance: ', cov.round(6))
 print('Correlation: ', corr.round(6))
 
-print('\nMINIMUM VARIANCE PORTFOLIO STATS\n--------------------------------')
+print('\nGLOBAL MINIMUM VARIANCE PORTFOLIO STATS\n--------------------------------')
 table2 = {'Pct. ticker symbol': ['Pct. {}:'.format(t_symb1),
                                  'Pct. {}:'.format(t_symb2),
                                  'Mean:',
                                  'Variance:',
                                  'Std. Dev.:'],
-          'data': [mvp_pct_stock1 * 100, mvp_pct_stock2 * 100, mvp_mu, mvp_sigma_sq, mvp_sigma]}
+          'data': [gmvp_pct_stock1 * 100, gmvp_pct_stock2 * 100, gmvp_mu, gmvp_sigma_sq, gmvp_sigma]}
 df2 = pd.DataFrame(table2)
 df2['data'] = df2['data'].round(3)
 print(df2.to_string(index=False, header=False))
-print('Sharpe ratio: ', round(mvp_sharpe_ratio, 3))
+print('Sharpe ratio: ', round(gmvp_sharpe_ratio, 3))
 
 print('\nOPTIMUM MARKET PORTFOLIO STATS\n------------------------------')
 table3 = {'Pct. ticker symbol': ['Pct. {}:'.format(t_symb1),
@@ -175,14 +175,14 @@ if g_rep == 'Y' or g_rep == 'y':
     plt.scatter(X_line, Y_line, color='black', s=0.25)
     plt.scatter(df_pt['Port. standard deviation'].head(1), df_pt['Port. mean'].head(1), color='blue', s=15)
     plt.scatter(df_pt['Port. standard deviation'].tail(1), df_pt['Port. mean'].tail(1), color='blue', s=15)
-    ax.plot(mvp_sigma, mvp_mu, "ro", label='Minimum Variance Portfolio')
+    ax.plot(gmvp_sigma, gmvp_mu, "ro", label='Global Minimum Variance Portfolio')
     ax.plot(omp_sigma, omp_mu, "go", label='Optimum Market Portfolio')
     plt.xlabel('Risk (standard deviation)')
     plt.ylabel('Return (mean)')
     plt.text(df_pt['Port. standard deviation'].head(1), df_pt['Port. mean'].head(1), t_symb2)
     plt.text(df_pt['Port. standard deviation'].tail(1), df_pt['Port. mean'].tail(1), t_symb1)
     plt.tight_layout()
-    ax.set_xlim(mvp_sigma * (1 - 0.05))
+    ax.set_xlim(gmvp_sigma * (1 - 0.05))
     plt.legend(loc="upper left")
     plt.show()
     plt.close()

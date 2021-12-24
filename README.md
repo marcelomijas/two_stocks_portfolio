@@ -1,6 +1,6 @@
 # Two stocks portfolio analysis with Python
 
-Two stocks minimum variance portfolio and optimum market portfolio analysis with Python using Harry Max Markowitz modern 
+Two stocks global minimum variance portfolio and optimum market portfolio analysis with Python using Harry Max Markowitz modern 
 portfolio theory.
 
 Libraries used for the project:
@@ -31,7 +31,7 @@ and the risk-free asset is 10 year US bond yield (^TNX).
 
 ## Example
 
-Use example using Advanced Micro Devices (AMD) and BlackBerry Limited (BB) stocks:
+Example using Advanced Micro Devices (AMD) and Tesla (TSLA) stocks:
 
 ```
 +---------------------------------+
@@ -41,8 +41,8 @@ Use example using Advanced Micro Devices (AMD) and BlackBerry Limited (BB) stock
 Ticker symbol stock 1: AMD
 Advanced Micro Devices, Inc.
 [*********************100%***********************]  1 of 1 completed
-Ticker symbol stock 2: BB
-BlackBerry Limited
+Ticker symbol stock 2: TSLA
+Tesla, Inc.
 [*********************100%***********************]  1 of 1 completed
 Risk free asset: ^TNX (10 year US bond yield, annualized)
 Treasury Yield 10 Years
@@ -52,36 +52,36 @@ Calculation complete. Press Enter to show results
 
 PER STOCK STATS
 ---------------
-             AMD    BB
-     Mean: 0.407 1.339
- Variance: 0.158 1.089
-Std. Dev.: 0.398 1.044
- Covariance:  0.042684
-Correlation:  0.102864
+             AMD  TSLA
+     Mean: 0.555 0.628
+ Variance: 0.177 0.302
+Std. Dev.: 0.421 0.549
+ Covariance:  0.098759
+Correlation:  0.427012
 
-MINIMUM VARIANCE PORTFOLIO STATS
+GLOBAL MINIMUM VARIANCE PORTFOLIO STATS
 --------------------------------
- Pct. AMD: 90.062
-  Pct. BB:  9.938
-     Mean:  0.500
- Variance:  0.147
-Std. Dev.:  0.383
-Sharpe ratio:  1.304
+ Pct. AMD: 72.121
+Pct. TSLA: 27.879
+     Mean:  0.575
+ Variance:  0.155
+Std. Dev.:  0.394
+Sharpe ratio:  1.459
 
 OPTIMUM MARKET PORTFOLIO STATS
 ------------------------------
- Pct. AMD: 66.526
-  Pct. BB: 33.474
-     Mean:  0.719
- Variance:  0.211
-Std. Dev.:  0.459
-Sharpe ratio:  1.565
+ Pct. AMD: 65.075
+Pct. TSLA: 34.925
+     Mean:  0.581
+ Variance:  0.157
+Std. Dev.:  0.396
+Sharpe ratio:  1.466
 
-Graphic representation? Y/[N]  
+Graphic representation? Y/[N]
 ```
 
 If the response to ```Graphic representation?``` is ```Y```, then:
-![Plot example](/example_images/plot.png)
+![Plot example](/example_images/Figure_1.png)
 
 Lastly (have chosen ```N``` or closed the matplotlib window):
 
