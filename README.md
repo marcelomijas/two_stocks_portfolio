@@ -60,7 +60,7 @@ Std. Dev.: 0.421 0.549
 Correlation:  0.427012
 
 GLOBAL MINIMUM VARIANCE PORTFOLIO STATS
---------------------------------
+---------------------------------------
  Pct. AMD: 72.121
 Pct. TSLA: 27.879
      Mean:  0.575
