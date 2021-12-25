@@ -135,7 +135,7 @@ print(df1.to_string(index=False))
 print(' Covariance: ', cov.round(6))
 print('Correlation: ', corr.round(6))
 
-print('\nGLOBAL MINIMUM VARIANCE PORTFOLIO STATS\n--------------------------------')
+print('\nGLOBAL MINIMUM VARIANCE PORTFOLIO STATS\n---------------------------------------')
 table2 = {'Pct. ticker symbol': ['Pct. {}:'.format(t_symb1),
                                  'Pct. {}:'.format(t_symb2),
                                  'Mean:',
