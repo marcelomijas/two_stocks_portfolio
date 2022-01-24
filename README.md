@@ -12,16 +12,16 @@ Libraries used for the project:
 ## Usage
 
 1. Make sure to have installed the last version of all the libraries above.
-2. Download and execute the "two\_stocks\_portfolio.py" file with Python (versions equal or above 3.8 are recommended).
+2. Download and execute the `two_stocks_portfolio.py` file with Python (versions equal or above 3.8 are recommended).
 3. First, the program will ask to introduce the ticker symbol of the 1st of the two stocks that the portfolio will be 
-composed of. Introduce it and press Enter.
+composed of. Introduce it and press `Enter`.
 4. Secondly, the program will ask to introduce the ticker symbol of the 1st of the two stocks that the portfolio will be 
-composed of. Introduce it and press Enter.
+composed of. Introduce it and press `Enter`.
 5. Then, the program will automatically download data from the risk-free asset and start the calculations.
-6. When the calculations are complete, the program will prompt to press Enter to show results. Press it. Per stock and
-portfolio stats will be presented.
+6. When the calculations are complete, the program will prompt to press `Enter` to show results. Press it. Per stock and
+portfolio stats will be displayed.
 7. Finally, the program will ask for a graphic representation of the portfolios in the return-risk space.
-Press 'Y' to proceed, or 'N' to finish the program.
+Press `Y` to proceed, or `N` to finish the program.
 8. If graphic representation is selected, a matplotlib window will automatically appear with the plot. Here you
 can zoom in, out, save the plot as an image... with the matplotlib interface. When you are finished, close the
 matplotlib window and the program will end.
