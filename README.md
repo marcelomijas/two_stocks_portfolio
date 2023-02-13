@@ -1,4 +1,4 @@
-By [Marcelo Moreno](https://www.linkedin.com/in/marcelomorenop/) and [Yago Cano](https://www.linkedin.com/in/yagocano/)
+By [Marcelo Moreno](https://www.linkedin.com/in/marcelomorenop/) and [Yago Cano](https://www.linkedin.com/in/yagocano/), from University King Juan Carlos.
 
 # Two stocks portfolio analysis with Python
 
