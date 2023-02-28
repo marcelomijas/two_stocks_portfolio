@@ -2,7 +2,7 @@ By [Marcelo Moreno](https://www.linkedin.com/in/marcelomorenop/) and [Yago Cano]
 
 # Two stocks portfolio analysis with Python
 
-Two stocks global minimum variance portfolio and optimum market portfolio analysis with Python using Harry Max Markowitz modern 
+Two stocks minimum variance portfolio and optimum market portfolio analysis with Python using Harry Max Markowitz modern 
 portfolio theory.
 
 Libraries used for the project:
@@ -36,48 +36,41 @@ and the risk-free asset is 10 year US bond yield (^TNX).
 Example using Advanced Micro Devices (AMD) and Tesla (TSLA) stocks:
 
 ```
-+---------------------------------+
-|  TWO STOCKS PORTFOLIO ANALYSIS  |
-+---------------------------------+
+TWO STOCKS PORTFOLIO ANALYSIS
+-----------------------------
 
-Ticker symbol stock 1: AMD
-Advanced Micro Devices, Inc.
+Ticker symbol stock 1: CDNS
 [*********************100%***********************]  1 of 1 completed
-Ticker symbol stock 2: TSLA
-Tesla, Inc.
+Ticker symbol stock 2: FISV
 [*********************100%***********************]  1 of 1 completed
-Risk free asset: ^TNX (10 year US bond yield, annualized)
-Treasury Yield 10 Years
+Risk free asset: ^TNX (10 year US bond yield)
 [*********************100%***********************]  1 of 1 completed
 
-Calculation complete. Press Enter to show results 
+Calculation complete. Press Enter to show results
 
-PER STOCK STATS
----------------
-             AMD  TSLA
-     Mean: 0.555 0.628
- Variance: 0.177 0.302
-Std. Dev.: 0.421 0.549
- Covariance:  0.098759
-Correlation:  0.427012
+STOCK STATS
+            CDNS  FISV
+     Mean: 0.327 0.218
+ Variance: 0.147 0.091
+Std. Dev.: 0.384 0.302
+ Covariance:  0.070983
+Correlation:  0.612303
 
-GLOBAL MINIMUM VARIANCE PORTFOLIO STATS
----------------------------------------
- Pct. AMD: 72.121
-Pct. TSLA: 27.879
-     Mean:  0.575
- Variance:  0.155
-Std. Dev.:  0.394
-Sharpe ratio:  1.459
+MINIMUM VARIANCE PORTFOLIO STATS
+   % CDNS: 20.987
+   % FISV: 79.013
+     Mean:  0.241
+ Variance:  0.087
+Std. Dev.:  0.295
+Sharpe ratio:  0.815
 
 OPTIMUM MARKET PORTFOLIO STATS
-------------------------------
- Pct. AMD: 65.075
-Pct. TSLA: 34.925
-     Mean:  0.581
- Variance:  0.157
-Std. Dev.:  0.396
-Sharpe ratio:  1.466
+   % CDNS: 61.936
+   % FISV: 38.064
+     Mean:  0.285
+ Variance:  0.103
+Std. Dev.:  0.321
+Sharpe ratio:  0.888
 
 Graphic representation? Y/[N]
 ```
@@ -88,5 +81,5 @@ If the response to ```Graphic representation?``` is ```Y```, then:
 Lastly (have chosen ```N``` or closed the matplotlib window):
 
 ```
-Process finished
+Program finished
 ```
