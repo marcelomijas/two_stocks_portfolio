@@ -33,7 +33,7 @@ and the risk-free asset is 10 year US bond yield (^TNX).
 
 ## Example
 
-Example using Advanced Micro Devices (AMD) and Tesla (TSLA) stocks:
+Example using Cadence Design Systems, Inc (CDNS) and Fiserv, Inc (FISV) stocks:
 
 ```
 TWO STOCKS PORTFOLIO ANALYSIS
