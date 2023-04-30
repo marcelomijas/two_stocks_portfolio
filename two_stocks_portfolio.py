@@ -169,33 +169,33 @@ df["data"] = df["data"].round(3)
 print(df.to_string(index=False, header=False))
 print("Sharpe ratio: ", round(sr_omp, 3))
 
+
 graph = input("\nGraphic representation? Y/[N] ")
 
 if graph == "Y" or graph == "y":
-    ax = plt.subplot()
-    ax.grid()
-    ax.set_axisbelow(True)
-    plt.scatter(df_pt["sd"], df_pt["mean"], color="slategray", s=2)
-    plt.scatter(
-        df_pt["sd"].head(1),
-        df_pt["mean"].head(1),
-        color="slategray",
-        s=15,
-    )
+    plt.xlabel("Risk (standard deviation)")
+    plt.ylabel("Return (mean)")
+    plt.scatter(df_pt["sd"], df_pt["mean"], s=2, c="slategray")
+    plt.scatter(sd_mvp, mean_mvp, s=60, c="red", label="Minimum Variance Portfolio")
+    plt.scatter(sd_omp, mean_omp, s=60, c="green", label="Optimum Market Portfolio")
     plt.scatter(
         df_pt["sd"].tail(1),
         df_pt["mean"].tail(1),
-        color="slategray",
-        s=15,
+        s=100,
+        c="black",
+        marker="2",
+        label=ts_1,
     )
-    ax.plot(sd_mvp, mean_mvp, "ro", label="Minimum Variance Portfolio")
-    ax.plot(sd_omp, mean_omp, "go", label="Optimum Market Portfolio")
-    plt.xlabel("Risk (standard deviation)")
-    plt.ylabel("Return (mean)")
-    plt.text(df_pt["sd"].head(1), df_pt["mean"].head(1), ts_2)
-    plt.text(df_pt["sd"].tail(1), df_pt["mean"].tail(1), ts_1)
-    plt.tight_layout()
-    plt.legend(loc="upper left")
+    plt.scatter(
+        df_pt["sd"].head(1),
+        df_pt["mean"].head(1),
+        s=100,
+        c="black",
+        marker="1",
+        label=ts_2,
+    )
+    plt.legend()
+    plt.grid()
     plt.show()
     plt.close()
 
