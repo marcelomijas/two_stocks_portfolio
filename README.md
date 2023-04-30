@@ -49,28 +49,28 @@ Risk free asset: ^TNX (10 year US bond yield)
 Calculation complete. Press Enter to show results
 
 STOCK STATS
-            CDNS  FISV
-     Mean: 0.327 0.218
- Variance: 0.147 0.091
-Std. Dev.: 0.384 0.302
- Covariance:  0.070983
-Correlation:  0.612303
+            FISV  CDNS
+     Mean: 0.267 0.394
+ Variance: 0.088 0.127
+Std. Dev.: 0.297 0.357
+ Covariance:  0.060119
+Correlation:  0.567701
 
 MINIMUM VARIANCE PORTFOLIO STATS
-   % CDNS: 20.987
-   % FISV: 79.013
-     Mean:  0.241
- Variance:  0.087
-Std. Dev.:  0.295
-Sharpe ratio:  0.815
+   % FISV: 70.505
+   % CDNS: 29.495
+     Mean:  0.304
+ Variance:  0.080
+Std. Dev.:  0.283
+Sharpe ratio:  1.076
 
 OPTIMUM MARKET PORTFOLIO STATS
-   % CDNS: 61.936
-   % FISV: 38.064
-     Mean:  0.285
- Variance:  0.103
-Std. Dev.:  0.321
-Sharpe ratio:  0.888
+   % FISV: 35.265
+   % CDNS: 64.735
+     Mean:  0.349
+ Variance:  0.092
+Std. Dev.:  0.303
+Sharpe ratio:  1.153
 
 Graphic representation? Y/[N]
 ```
