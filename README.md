@@ -88,7 +88,7 @@ Plot the investment opportunity set? [Y/n]
 
 If the response to ```Graphic representation?``` is ```Y```, then:
 
-![Plot example](/example_images/Figure_1.png)
+![Plot example](/demo/Figure_1.png)
 
 Lastly (have chosen ```N``` or closed the matplotlib window):
 
