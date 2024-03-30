@@ -20,9 +20,9 @@ Created by [Marcelo Moreno](https://www.linkedin.com/in/marcelomorenop/) and [Ya
 By default, the program uses a time period of 5 year with 1 month intervals, the 'Close' price, 
 and the risk-free asset is 10 year US bond yield (^TNX). Statistics are calculated as montly.
 
-## Example
+## Demo
 
-Example using the Motorola Solutions, Inc. (MSI) and Broadcom Inc. (AVGO) stocks:
+Demo using the Motorola Solutions, Inc. (MSI) and Broadcom Inc. (AVGO) stocks:
 
 ```
  ______                    __           __
@@ -76,11 +76,11 @@ Sharpe 0.328
 Plot the investment opportunity set? [Y/n]
 ```
 
-If the answer is ```Y```, then:
+If the answer is `Y`:
 
 ![Plot example](/demo/Figure_1.png)
 
-Lastly (having chosen ```N``` or closed the matplotlib window):
+Lastly (having chosen `N` or closed the matplotlib window):
 
 ```
 Program finished
