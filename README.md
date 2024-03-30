@@ -46,7 +46,7 @@ Risk-free asset: ^TNX
 Download complete. Press Enter to perform calculations 
 ```
 
-Pressing `Enter`
+Pressing `Enter`:
 
 ```
 rf = 0.03
