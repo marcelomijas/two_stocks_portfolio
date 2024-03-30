@@ -3,7 +3,7 @@
 Simple two stocks minimum-variance portfolio and tangency (optimal) portfolio analysis with Python using Harry Max Markowitz modern 
 portfolio theory.
 
-By [Marcelo Moreno](https://www.linkedin.com/in/marcelomorenop/) and [Yago Cano](https://www.linkedin.com/in/yagocano/), from Universidad Rey Juan Carlos.
+Created by [Marcelo Moreno](https://www.linkedin.com/in/marcelomorenop/) and [Yago Cano](https://www.linkedin.com/in/yagocano/), from Universidad Rey Juan Carlos.
 
 ## Usage
 
@@ -17,7 +17,7 @@ By [Marcelo Moreno](https://www.linkedin.com/in/marcelomorenop/) and [Yago Cano]
 8. If graphic representation is selected, a matplotlib window will appear with the plot. The user can zoom in, out, save the plot as an image... using the matplotlib interface. Close the matplotlib window when you are finished.
 9. To finnish the program you can press `Enter` or close the terminal window.
 
-By default, the program uses a time period of 5 year with 1 month intervals, the 'Close' price for its calculations, 
+By default, the program uses a time period of 5 year with 1 month intervals, the 'Close' price, 
 and the risk-free asset is 10 year US bond yield (^TNX). Statistics are calculated as montly.
 
 ## Example
