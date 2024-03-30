@@ -90,7 +90,7 @@ If the response is ```Y```, then:
 
 ![Plot example](/demo/Figure_1.png)
 
-Lastly (have chosen ```N``` or closed the matplotlib window):
+Lastly (having chosen ```N``` or closed the matplotlib window):
 
 ```
 Program finished
