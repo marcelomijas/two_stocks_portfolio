@@ -86,7 +86,7 @@ Sharpe 0.328
 Plot the investment opportunity set? [Y/n]
 ```
 
-If the response to ```Graphic representation?``` is ```Y```, then:
+If the response is ```Y```, then:
 
 ![Plot example](/demo/Figure_1.png)
 
