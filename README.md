@@ -49,16 +49,6 @@ Download complete. Press Enter to perform calculations
 Pressing `Enter`
 
 ```
- ______                    __           __
-/_  __/    _____      ___ / /____  ____/ /__ ___
- / / | |/|/ / _ \    (_-</ __/ _ \/ __/  '_/(_-<
-/_/  |__,__/\___/ __/___/\__/\___/\__/_/\_\/___/
-   ___  ___  ____/ /_/ _/__  / (_)__
-  / _ \/ _ \/ __/ __/ _/ _ \/ / / _ \
- / .__/\___/_/  \__/_/ \___/_/_/\___/
-/_/
-Statistics are calculated as monthly
-
 rf = 0.03
 
 Performance statistics:
