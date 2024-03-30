@@ -7,14 +7,14 @@ Created by [Marcelo Moreno](https://www.linkedin.com/in/marcelomorenop/) and [Ya
 
 ## Usage
 
-1. Make sure to have installed the packages located in `requirements.txt`.
+1. Make sure you have installed the packages located in `requirements.txt`.
 2. Download and execute `main.py` with Python.
-3. The program will ask the user to introduce the ticker symbol of the first asset of the portfolio. Introduce it and press `Enter`. Repeat the procedure for the second asset.
-4. The program will download data from the two assets introduced by the user and the risk-free asset.
-6. When the downloads are complete, the program will prompt the user to press `Enter` to perform the calculations. Press it.
+3. The program will ask you to introduce the ticker symbol of the first asset of the portfolio. Introduce it and press `Enter`. Repeat the procedure for the second asset.
+4. The program will download data from the two assets introduced and the risk-free asset.
+6. When the downloads are complete, the program will prompt you to press `Enter` to perform the calculations. Press it.
 7. Per asset and portfolios statistics will be displayed.
-7. The program will ask the user to proceed with the investment oportunity set graphic representation in the return-risk space.
-8. If graphic representation is selected, a matplotlib window will appear with the plot. The user can zoom in, out, save the plot as an image... using the matplotlib interface. Close the matplotlib window when you are finished.
+7. The program will ask you to proceed with the investment oportunity set graphic representation in the return-risk space.
+8. If graphic representation is selected, a matplotlib window will appear with the plot. You can zoom in, out, save the plot as an image... using the matplotlib interface. Close the matplotlib window when you are finished.
 9. To finnish the program you can press `Enter` or close the terminal window.
 
 By default, the program uses a time period of 5 year with 1 month intervals, the 'Close' price, 
