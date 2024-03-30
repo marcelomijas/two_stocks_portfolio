@@ -1,81 +1,93 @@
-By [Marcelo Moreno](https://www.linkedin.com/in/marcelomorenop/) and [Yago Cano](https://www.linkedin.com/in/yagocano/), from King Juan Carlos University.
-
 # Two stocks portfolio analysis with Python
 
-Two stocks minimum variance portfolio and optimum market portfolio analysis with Python using Harry Max Markowitz modern 
+Simple two stocks minimum-variance portfolio and tangency (optimal) portfolio analysis with Python using Harry Max Markowitz modern 
 portfolio theory.
 
-Libraries used for the project:
-* [yfinance](https://pypi.org/project/yfinance/)
-* [numpy](https://numpy.org/)
-* [pandas](https://pandas.pydata.org/)
-* [matplotlib](https://matplotlib.org/)
+By [Marcelo Moreno](https://www.linkedin.com/in/marcelomorenop/) and [Yago Cano](https://www.linkedin.com/in/yagocano/), from Universidad Rey Juan Carlos.
 
 ## Usage
 
-1. Make sure to have installed the last version of all the libraries above.
-2. Download and execute the `two_stocks_portfolio.py` file with Python (versions equal or above 3.8 are recommended).
-3. First, the program will ask to introduce the ticker symbol of the 1st of the two stocks that the portfolio will be 
-composed of. Introduce it and press `Enter`.
-4. Secondly, the program will ask to introduce the ticker symbol of the 1st of the two stocks that the portfolio will be 
-composed of. Introduce it and press `Enter`.
-5. Then, the program will automatically download data from the risk-free asset and start the calculations.
-6. When the calculations are complete, the program will prompt to press `Enter` to show results. Press it. Per stock and
-portfolio stats will be displayed.
-7. Finally, the program will ask for a graphic representation of the portfolios in the return-risk space.
-Press `Y` to proceed, or `N` to finish the program.
-8. If graphic representation is selected, a matplotlib window will automatically appear with the plot. Here you
-can zoom in, out, save the plot as an image... with the matplotlib interface. When you are finished, close the
-matplotlib window and the program will end.
+1. Make sure to have installed the packages located in `requirements.txt`.
+2. Download and execute `main.py` with Python.
+3. The program will ask the user to introduce the ticker symbol of the first asset of the portfolio. Introduce it and press `Enter`. Repeat the procedure for the second asset.
+4. The program will download data from the two assets introduced by the user and the risk-free asset.
+6. When the downloads are complete, the program will prompt the user to press `Enter` to perform the calculations. Press it.
+7. Per asset and portfolios statistics will be displayed.
+7. The program will ask the user to proceed with the investment oportunity set graphic representation in the return-risk space.
+8. If graphic representation is selected, a matplotlib window will appear with the plot. The user can zoom in, out, save the plot as an image... using the matplotlib interface. Close the matplotlib window when you are finished.
+9. To finnish the program you can press `Enter` or close the terminal window.
 
-By default, the program uses the time period of 1 year with 1 days intervals, the 'Close' price for its calculations, 
-and the risk-free asset is 10 year US bond yield (^TNX).
+By default, the program uses a time period of 5 year with 1 month intervals, the 'Close' price for its calculations, 
+and the risk-free asset is 10 year US bond yield (^TNX). Statistics are calculated as montly.
 
 ## Example
 
-Example using Cadence Design Systems, Inc (CDNS) and Fiserv, Inc (FISV) stocks:
+Example using the Motorola Solutions, Inc. (MSI) and Broadcom Inc. (AVGO) stocks:
 
 ```
-TWO STOCKS PORTFOLIO ANALYSIS
------------------------------
+ ______                    __           __
+/_  __/    _____      ___ / /____  ____/ /__ ___
+ / / | |/|/ / _ \    (_-</ __/ _ \/ __/  '_/(_-<
+/_/  |__,__/\___/ __/___/\__/\___/\__/_/\_\/___/
+   ___  ___  ____/ /_/ _/__  / (_)__
+  / _ \/ _ \/ __/ __/ _/ _ \/ / / _ \
+ / .__/\___/_/  \__/_/ \___/_/_/\___/
+/_/
+Statistics are calculated as monthly
 
-Ticker symbol stock 1: CDNS
-[*********************100%***********************]  1 of 1 completed
-Ticker symbol stock 2: FISV
-[*********************100%***********************]  1 of 1 completed
-Risk free asset: ^TNX (10 year US bond yield)
-[*********************100%***********************]  1 of 1 completed
+Ticker symbol of asset 1: MSI
+         Motorola Solutions, Inc.
+Ticker symbol of asset 2: AVGO
+         Broadcom Inc.
+Downloading assets: ['AVGO', 'MSI']
+[*********************100%%**********************]  2 of 2 completed
+Risk-free asset: ^TNX
+         CBOE Interest Rate 10 Year T No
+Download complete. Press Enter to perform calculations 
+```
 
-Calculation complete. Press Enter to show results
+Pressing `Enter`
 
-STOCK STATS
-            FISV  CDNS
-     Mean: 0.267 0.394
- Variance: 0.088 0.127
-Std. Dev.: 0.297 0.357
- Covariance:  0.060119
-Correlation:  0.567701
+```
+ ______                    __           __
+/_  __/    _____      ___ / /____  ____/ /__ ___
+ / / | |/|/ / _ \    (_-</ __/ _ \/ __/  '_/(_-<
+/_/  |__,__/\___/ __/___/\__/\___/\__/_/\_\/___/
+   ___  ___  ____/ /_/ _/__  / (_)__
+  / _ \/ _ \/ __/ __/ _/ _ \/ / / _ \
+ / .__/\___/_/  \__/_/ \___/_/_/\___/
+/_/
+Statistics are calculated as monthly
 
-MINIMUM VARIANCE PORTFOLIO STATS
-   % FISV: 70.505
-   % CDNS: 29.495
-     Mean:  0.304
- Variance:  0.080
-Std. Dev.:  0.283
-Sharpe ratio:  1.076
+rf = 0.03
 
-OPTIMUM MARKET PORTFOLIO STATS
-   % FISV: 35.265
-   % CDNS: 64.735
-     Mean:  0.349
- Variance:  0.092
-Std. Dev.:  0.303
-Sharpe ratio:  1.153
+Performance statistics:
+Ticker   AVGO    MSI
+avg     2.858  1.772
+stdev   9.211  6.964
+Sharpe  0.306  0.249
+covar  30.998
+correl 0.483
 
-Graphic representation? Y/[N]
+Minimum-variance portfolio:
+Ticker    AVGO    MSI
+weigths  0.245  0.755
+avg    2.038
+stdev  6.649
+Sharpe 0.301
+
+Tangency portfolio:
+Ticker    AVGO    MSI
+weigths  0.581  0.419
+avg    2.403
+stdev  7.229
+Sharpe 0.328
+
+Plot the investment opportunity set? [Y/n]
 ```
 
 If the response to ```Graphic representation?``` is ```Y```, then:
+
 ![Plot example](/example_images/Figure_1.png)
 
 Lastly (have chosen ```N``` or closed the matplotlib window):
@@ -83,3 +95,21 @@ Lastly (have chosen ```N``` or closed the matplotlib window):
 ```
 Program finished
 ```
+
+## Resources
+
+[1] Bodie, Z., Kane, A., & Marcus, A. J. (2014). Investments (Tenth edition). McGraw-Hill Education.
+
+[2] Harris, C. R., Millman, K. J., Walt, S. J. et al. (2020). Array programming with NumPy. Nature, 585(7825), 357-362. https://doi.org/10.1038/s41586-020-2649-2
+
+[3] Hunter, J. D. (2007). Matplotlib: A 2D graphics environment. Computing in Science & Engineering, 9(3), 90-95. https://doi.org/10.1109/MCSE.2007.55
+
+[4] Markowitz, H. (1952a). Portfolio selection*. The Journal of Finance, 7(1), 77-91. https://doi.org/10.1111/j.1540-6261.1952.tb01525.x
+
+[5] Markowitz, H. (1952b). The utility of wealth. Journal of Political Economy, 60(2), 151-158. https://www.jstor.org/stable/1825964
+
+[6] Markowitz, H. M. (1959). Portfolio selection: Efficient diversification of investments. Yale University Press. https://www.jstor.org/stable/j.ctt1bh4c8h
+
+[7] The pandas development team. (2020). Pandas-dev/pandas: Pandas (latest) [Software]. Zenodo. https://doi.org/10.5281/zenodo.3509134
+
+[8] yfinance: Download market data from yahoo! Finance api. (s. f.). [Python; OS Independent]. Retrieved March 30 of 2024, from https://github.com/ranaroussi/yfinance
