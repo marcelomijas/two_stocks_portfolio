@@ -22,7 +22,7 @@ and the risk-free asset is 10 year US bond yield (^TNX). Statistics are calculat
 
 ## Demo
 
-Demo using the Motorola Solutions, Inc. (MSI) and Broadcom Inc. (AVGO) stocks:
+Usage demo with Motorola Solutions, Inc. (MSI) and Broadcom Inc. (AVGO) stocks:
 
 ```
  ______                    __           __
