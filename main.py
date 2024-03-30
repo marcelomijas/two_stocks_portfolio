@@ -134,7 +134,6 @@ def main():
     rf = download_rf()
     input("Download complete. Press Enter to perform the calculations ")
     system("cls")
-    print(banner)
     print(f"rf = {rf:.2f}")
 
     print("\nPerformance statistics:")
