@@ -111,7 +111,7 @@ def sharpe_ratio(avg, stdev, rf):
     return Sr
 
 
-def portfolio_table(avg, stdev, covar, step=0.001):
+def portfolio_table(avg, stdev, covar, step: float = 0.001):
     avg_1, avg_2 = avg.iloc[0], avg.iloc[1]
     stdev_1, stdev_2 = stdev.iloc[0], stdev.iloc[1]
     pt = pd.DataFrame({"w_1": np.arange(0, 1 + step, step).tolist()})
