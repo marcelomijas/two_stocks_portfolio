@@ -33,45 +33,44 @@ Usage demo with Motorola Solutions, Inc. (MSI) and Broadcom Inc. (AVGO) stocks:
   / _ \/ _ \/ __/ __/ _/ _ \/ / / _ \
  / .__/\___/_/  \__/_/ \___/_/_/\___/
 /_/
-Statistics are calculated as monthly
 
-Ticker symbol of asset 1: MSI
-         Motorola Solutions, Inc.
-Ticker symbol of asset 2: AVGO
-         Broadcom Inc.
-Downloading assets: ['AVGO', 'MSI']
-[*********************100%%**********************]  2 of 2 completed
+Ticker symbol of asset 1: NVDA
+         NVIDIA Corporation
+Ticker symbol of asset 2: TSLA
+         Tesla, Inc.
+Downloading assets: ['NVDA', 'TSLA']
+[*********************100%***********************]  2 of 2 completed
 Risk-free asset: ^TNX
          CBOE Interest Rate 10 Year T No
-Download complete. Press Enter to perform calculations 
+Download complete. Press Enter to perform the calculations
 ```
 
 Pressing `Enter`:
 
 ```
-rf = 0.03
+rf = 0.04
 
 Performance statistics:
-Ticker   AVGO    MSI
-avg     2.858  1.772
-stdev   9.211  6.964
-Sharpe  0.306  0.249
-covar  30.998
-correl 0.483
+Ticker                NVDA    TSLA
+Expected return      3.363   3.991
+Standard deviation  10.300  19.256
+Sharpe ratio         0.323   0.205
+Covariance  -9.853
+Correlation -0.050
 
 Minimum-variance portfolio:
-Ticker    AVGO    MSI
-weigths  0.245  0.755
-avg    2.038
-stdev  6.649
-Sharpe 0.301
+Ticker    NVDA   TSLA
+weigths  0.767  0.233
+Expected return     3.510
+Standard deviation  8.890
+Sharpe ratio        0.391
 
 Tangency portfolio:
-Ticker    AVGO    MSI
-weigths  0.581  0.419
-avg    2.403
-stdev  7.229
-Sharpe 0.328
+Ticker    NVDA   TSLA
+weigths  0.738  0.262
+Expected return     3.528
+Standard deviation  8.913
+Sharpe ratio        0.392
 
 Plot the investment opportunity set? [Y/n]
 ```
