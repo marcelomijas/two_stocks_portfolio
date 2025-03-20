@@ -8,7 +8,7 @@ Created by [Marcelo Moreno](https://www.linkedin.com/in/marcelomorenop/) and [Ya
 ## Usage
 
 1. Make sure you have installed the packages located in `requirements.txt`.
-2. Download and execute `main.py` with Python.
+2. Download and execute `portfolio_analysis.py` with Python.
 3. The program will ask you to introduce the ticker symbol of the first asset of the portfolio. Introduce it and press `Enter`. Repeat the procedure for the second asset.
 4. The program will download data from the two assets introduced and the risk-free asset.
 6. When the downloads are complete, the program will prompt you to press `Enter` to perform the calculations. Press it.
