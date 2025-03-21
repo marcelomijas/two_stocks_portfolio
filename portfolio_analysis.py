@@ -190,7 +190,7 @@ def main():
     print(f"Sharpe ratio        {sharpe_omp:.3f}")
 
     plot_ios = input("\nPlot the investment opportunity set? [Y/n] ")
-    if plot_ios not in ("n", "N", False, 0):
+    if plot_ios not in ("n", "N"):
         table = portfolio_table(exp_ret, std_dev, cov)
         plt.xlabel("Risk (standard deviation)")
         plt.ylabel("Return (expected return)")
