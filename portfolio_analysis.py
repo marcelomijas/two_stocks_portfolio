@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import yfinance as yf
-from os import system
+from os import system, name
 
 # exp_ret = expected return
 # std_dev = standard deviation
@@ -155,7 +155,7 @@ def main():
     hist_prices = download_assets(tickers)
     rf = download_rf()
     input("Download complete. Press Enter to perform the calculations ")
-    system("cls")
+    system("cls" if name == "nt" else "clear")
     print(f"rf = {rf:.2f}")
 
     print("\nPerformance statistics:")
