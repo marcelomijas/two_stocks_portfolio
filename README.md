@@ -17,12 +17,12 @@ Created by [Marcelo Moreno](https://www.linkedin.com/in/marcelomorenop/) and [Ya
 8. If graphic representation is selected, a matplotlib window will appear with the plot. You can zoom in, out, save the plot as an image... using the matplotlib interface. Close the matplotlib window when you are finished.
 9. To finnish the program you can press `Enter` or close the terminal window.
 
-By default, the program uses a time period of 5 year with 1 month intervals, the 'Close' price, 
-and the risk-free asset is 10 year US bond yield (^TNX). Statistics are calculated as montly.
+By default, the program uses a time period of 1 year with 1 week intervals, the 'Close' price, 
+and the risk-free asset is 10 year US bond yield (^TNX). Statistics are calculated as annual.
 
 ## Demo
 
-Usage demo with Motorola Solutions, Inc. (MSI) and Broadcom Inc. (AVGO) stocks:
+Usage demo with NVIDIA Corporation (NVDA) and Tesla, Inc. (TSLA) stocks:
 
 ```
  ______                    __           __
@@ -48,29 +48,29 @@ Download complete. Press Enter to perform the calculations
 Pressing `Enter`:
 
 ```
-rf = 0.04
+rf = 0.42
 
 Performance statistics:
 Ticker                NVDA    TSLA
-Expected return      3.363   3.991
-Standard deviation  10.300  19.256
-Sharpe ratio         0.323   0.205
-Covariance  -9.853
-Correlation -0.050
+Expected return     36.298  57.966
+Standard deviation  53.768  66.262
+Sharpe ratio         0.667   0.868
+Covariance  1222.284
+Correlation 0.343
 
 Minimum-variance portfolio:
 Ticker    NVDA   TSLA
-weigths  0.767  0.233
-Expected return     3.510
-Standard deviation  8.890
-Sharpe ratio        0.391
+weigths  0.655  0.345
+Expected return     43.773
+Standard deviation  48.118
+Sharpe ratio        0.901
 
 Tangency portfolio:
 Ticker    NVDA   TSLA
-weigths  0.738  0.262
-Expected return     3.528
-Standard deviation  8.913
-Sharpe ratio        0.392
+weigths  0.416  0.584
+Expected return     48.957
+Standard deviation  50.914
+Sharpe ratio        0.953
 
 Plot the investment opportunity set? [Y/n]
 ```

@@ -29,8 +29,9 @@ BANNER = r"""
 
 RF_TICKER = "^TNX"
 PERIOD = "1y"
-INTERVAL = "1mo"
-RISK_FREE_DIVISOR = 10 * 12  # monthly risk-free return
+INTERVAL = "1wk"
+PERIOD_MULTIPLIER = 52
+RISK_FREE_DIVISOR = 10
 SHORT_SELLING = False
 
 
@@ -70,11 +71,11 @@ def assets_stats(
 ) -> tuple[pd.Series, pd.Series, float, float]:
     """Calculate statistics for the given assets."""
     assets_retruns = assets_hist_close.pct_change() * 100
-    exp_ret = assets_retruns.mean()
-    std_dev = assets_retruns.std()
-    var = assets_retruns.cov().iloc[0, 1]
+    exp_ret = assets_retruns.mean() * PERIOD_MULTIPLIER
+    std_dev = assets_retruns.std() * np.sqrt(PERIOD_MULTIPLIER)
+    cov = assets_retruns.cov().iloc[0, 1] * PERIOD_MULTIPLIER
     corr = assets_retruns.corr().iloc[0, 1]
-    return exp_ret, std_dev, var, corr
+    return exp_ret, std_dev, cov, corr
 
 
 def minimum_variance_portfolio(std_dev: pd.Series, cov: float) -> pd.DataFrame:
