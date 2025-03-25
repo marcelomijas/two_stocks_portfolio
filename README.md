@@ -22,8 +22,6 @@ and the risk-free asset is 10 year US bond yield (^TNX). Statistics are calculat
 
 ## Demo
 
-Example of usage with NVIDIA Corporation (NVDA) and Tesla, Inc. (TSLA) stocks:
-
 ```
  ______                    __           __
 /_  __/    _____      ___ / /____  ____/ /__ ___
